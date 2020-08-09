@@ -1,0 +1,24 @@
+{
+  "name": "podverse-shared",
+  "version": "1.0.0",
+  "description": "Helpers that are used across multiple Podverse modules",
+  "main": "./dist/nowPlayingItem.js",
+  "types": "./dist/nowPlayingItem.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/podverse/podverse-shared.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/podverse/podverse-shared/issues"
+  },
+  "homepage": "https://github.com/podverse/podverse-shared#readme",
+  "dependencies": {
+    "typescript": "3.7.2"
+  }
+}
