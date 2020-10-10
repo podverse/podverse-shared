@@ -1,3 +1,5 @@
+import { mostPopularMediaFileHosts } from './resources/mostPopularMediaFileHosts'
+
 export type NowPlayingItem = {
   addByRSSPodcastFeedUrl?: string
   clipEndTime?: number
@@ -27,7 +29,18 @@ export type NowPlayingItem = {
   userPlaybackPosition?: number
 }
 
+const cleanNowPlayingItemEpisodeMediaUrl = (url?: string) => {
+  if (url && url.indexOf('http://') === 0) {
+    if (mostPopularMediaFileHosts.some(x => url.includes(x))) {
+      return url.replace('http://', 'https://')
+    }
+  }
+
+  return url
+}
+
 export const cleanNowPlayingItem = (item: any) => {
+
   return {
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
     clipEndTime: item.clipEndTime,
@@ -38,7 +51,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeId: item.episodeId,
     episodeImageUrl: item.episodeImageUrl,
     episodeLinkUrl: item.episodeLinkUrl,
-    episodeMediaUrl: item.episodeMediaUrl,
+    episodeMediaUrl: cleanNowPlayingItemEpisodeMediaUrl(item.episodeMediaUrl),
     episodePubDate: item.episodePubDate,
     episodeTitle: item.episodeTitle,
     isPublic: item.isPublic,
