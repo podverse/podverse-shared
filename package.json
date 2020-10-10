@@ -1,9 +1,7 @@
 {
   "name": "podverse-shared",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Helpers that are used across multiple Podverse modules",
-  "main": "./dist/nowPlayingItem.js",
-  "types": "./dist/nowPlayingItem.d.ts",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
