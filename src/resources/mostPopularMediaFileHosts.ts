@@ -45,7 +45,6 @@ export const mostPopularMediaFileHosts = [
   "www.ivoox.com",
   "cdn.lizhi.fm",
   "cdn.podigee.com",
-  "feeds.soundcloud.com",
   "www.ivoox.com",
   "mp3.sermonaudio.com",
   "www.archive.org",
