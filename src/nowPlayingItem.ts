@@ -153,6 +153,7 @@ export const convertToNowPlayingItem = (
   if (!data) {
     return {}
   }
+
   const e = (data.pubDate && data) || data.episode || inheritedEpisode
   const p =
     (data.episode && data.episode.podcast) || data.podcast || inheritedPodcast
@@ -225,6 +226,15 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.podcastValue = p.value
     nowPlayingItem.userPlaybackPosition =
       userPlaybackPosition || data.clipStartTime || 0
+  }
+
+  if (nowPlayingItem.episodeFunding) {
+    nowPlayingItem.episodeFunding = typeof nowPlayingItem.episodeFunding === 'string'
+      ? JSON.parse(nowPlayingItem.episodeFunding) : nowPlayingItem.episodeFunding
+  }
+  if (nowPlayingItem.podcastFunding) {
+    nowPlayingItem.podcastFunding = typeof nowPlayingItem.podcastFunding === 'string'
+      ? JSON.parse(nowPlayingItem.podcastFunding) : nowPlayingItem.podcastFunding
   }
 
   nowPlayingItem.addByRSSPodcastFeedUrl = data.addByRSSPodcastFeedUrl || (inheritedPodcast && inheritedPodcast.addByRSSPodcastFeedUrl)
