@@ -4,6 +4,8 @@ export type NowPlayingItem = {
   addByRSSPodcastFeedUrl?: string
   clipEndTime?: number
   clipId?: string
+  clipIsOfficialChapter?: boolean
+  clipIsOfficialSoundBite?: boolean
   clipStartTime?: number
   clipTitle?: string
   episodeDescription?: string
@@ -48,6 +50,8 @@ export const cleanNowPlayingItem = (item: any) => {
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
     clipEndTime: item.clipEndTime,
     clipId: item.clipId,
+    clipIsOfficialChapter: item.clipIsOfficialChapter,
+    clipIsOfficialSoundBite: item.clipIsOfficialSoundBite,
     clipStartTime: item.clipStartTime,
     clipTitle: item.clipTitle,
     episodeDescription: item.episodeDescription,
@@ -105,6 +109,8 @@ export const convertNowPlayingItemToMediaRef = (item: NowPlayingItem = {}) => {
     endTime: item.clipEndTime,
     episode: convertNowPlayingItemToEpisode(item),
     id: item.clipId,
+    isOfficialChapter: item.clipIsOfficialChapter,
+    isOfficialSoundBite: item.clipIsOfficialSoundBite,
     isPublic: item.isPublic,
     startTime: item.clipStartTime,
     title: item.clipTitle,
@@ -199,6 +205,8 @@ export const convertToNowPlayingItem = (
   } else {
     nowPlayingItem.clipEndTime = data.endTime
     nowPlayingItem.clipId = data.id
+    nowPlayingItem.clipIsOfficialChapter = data.isOfficialChapter
+    nowPlayingItem.clipIsOfficialSoundBite = data.isOfficialSoundBite
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
     nowPlayingItem.episodeDescription = e.description
