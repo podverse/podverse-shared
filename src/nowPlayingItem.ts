@@ -28,6 +28,7 @@ export type NowPlayingItem = {
   podcastImageUrl?: string
   podcastIsExplicit?: boolean
   podcastLinkUrl?: string
+  podcastShrunkImageUrl?: string
   podcastSortableTitle?: string
   podcastTitle?: string
   podcastValue?: any
@@ -74,6 +75,7 @@ export const cleanNowPlayingItem = (item: any) => {
     podcastImageUrl: item.podcastImageUrl,
     podcastIsExplicit: item.podcastIsExplicit,
     podcastLinkUrl: item.podcastLinkUrl,
+    podcastShrunkImageUrl: item.podcastShrunkImageUrl,
     podcastSortableTitle: item.podcastSortableTitle,
     podcastTitle: item.podcastTitle,
     podcastValue: item.podcastValue,
@@ -97,6 +99,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
       imageUrl: item.podcastImageUrl,
       isExplicit: item.podcastIsExplicit,
       linkUrl: item.podcastLinkUrl,
+      shrunkImageUrl: item.podcastShrunkImageUrl,
       sortableTitle: item.podcastSortableTitle,
       title: item.podcastTitle,
       value: item.podcastValue
@@ -140,6 +143,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     podcastImageUrl: data.podcastImageUrl,
     podcastIsExplicit: data.podcastIsExplicit,
     podcastLinkUrl: data.podcastLinkUrl,
+    podcastShrunkImageUrl: data.podcastShrunkImageUrl,
     podcastSortableTitle: data.podcastSortableTitle,
     podcastTitle: data.podcastTitle,
     podcastValue: data.podcastValue,
@@ -178,6 +182,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.podcastId = data.podcast_id
     nowPlayingItem.podcastImageUrl = data.podcast_shrunkImageUrl || data.podcast_imageUrl
     nowPlayingItem.podcastLinkUrl = data.podcast_linkUrl
+    nowPlayingItem.podcastShrunkImageUrl = data.podcast_shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = data.podcast_sortableTitle
     nowPlayingItem.podcastTitle = data.podcast_title
     nowPlayingItem.podcastValue = data.podcast_value
@@ -197,6 +202,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.podcastImageUrl = p.shrunkImageUrl || p.imageUrl
     nowPlayingItem.podcastIsExplicit = p.isExplicit
     nowPlayingItem.podcastLinkUrl = p.linkUrl
+    nowPlayingItem.podcastShrunkImageUrl = p.shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = p.sortableTitle
     nowPlayingItem.podcastTitle = p.title
     nowPlayingItem.podcastValue = p.value
@@ -229,6 +235,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.podcastIsExplicit = p.isExplicit
     nowPlayingItem.podcastImageUrl = p.shrunkImageUrl || p.imageUrl
     nowPlayingItem.podcastLinkUrl = p.linkUrl
+    nowPlayingItem.podcastShrunkImageUrl = p.shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = p.sortableTitle
     nowPlayingItem.podcastTitle = p.title
     nowPlayingItem.podcastValue = p.value
