@@ -20,8 +20,6 @@ export type NowPlayingItem = {
   ownerId?: string
   ownerIsPublic?: boolean
   ownerName?: string
-  podcastAuthors?: string
-  podcastCategories?: string
   podcastFunding?: string
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
@@ -46,40 +44,54 @@ const cleanNowPlayingItemEpisodeMediaUrl = (url?: string) => {
 }
 
 export const cleanNowPlayingItem = (item: any) => {
+  let cleanedItem = {}
+
+  if (item.clipId) {
+    cleanedItem = {
+      ...cleanedItem,
+      clipEndTime: item.clipEndTime || null,
+      clipId: item.clipId || '',
+      clipIsOfficialChapter: item.clipIsOfficialChapter || false,
+      clipIsOfficialSoundBite: item.clipIsOfficialSoundBite || false,
+      clipStartTime: item.clipStartTime || 0,
+      clipTitle: item.clipTitle || '',
+    }
+  }
+
+  if (item.ownerId) {
+    cleanedItem = {
+      ...cleanedItem,
+      ownerId: item.ownerId || '',
+      ownerIsPublic: item.ownerIsPublic || false,
+      ownerName: item.ownerName || ''
+    }
+  }
 
   return {
-    addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
-    clipEndTime: item.clipEndTime,
-    clipId: item.clipId,
-    clipIsOfficialChapter: item.clipIsOfficialChapter,
-    clipIsOfficialSoundBite: item.clipIsOfficialSoundBite,
-    clipStartTime: item.clipStartTime,
-    clipTitle: item.clipTitle,
-    episodeDescription: item.episodeDescription,
-    episodeFunding: item.episodeFunding,
-    episodeId: item.episodeId,
-    episodeImageUrl: item.episodeImageUrl,
-    episodeLinkUrl: item.episodeLinkUrl,
-    episodeMediaUrl: cleanNowPlayingItemEpisodeMediaUrl(item.episodeMediaUrl),
-    episodePubDate: item.episodePubDate,
-    episodeTitle: item.episodeTitle,
-    isPublic: item.isPublic,
-    ownerId: item.ownerId,
-    ownerIsPublic: item.ownerIsPublic,
-    ownerName: item.ownerName,
-    // podcastAuthors: item.podcastAuthors,
-    // podcastCategories: item.podcastCategories,
-    podcastFunding: item.podcastFunding,
-    podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning,
-    podcastId: item.podcastId,
-    podcastImageUrl: item.podcastImageUrl,
-    podcastIsExplicit: item.podcastIsExplicit,
-    podcastLinkUrl: item.podcastLinkUrl,
-    podcastShrunkImageUrl: item.podcastShrunkImageUrl,
-    podcastSortableTitle: item.podcastSortableTitle,
-    podcastTitle: item.podcastTitle,
-    podcastValue: item.podcastValue,
-    userPlaybackPosition: item.userPlaybackPosition
+    ..cleanedItem,
+    addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
+    episodeDescription: item.episodeDescription || '',
+    episodeFunding: item.episodeFunding || [],
+    episodeId: item.episodeId || '',
+    episodeImageUrl: item.episodeImageUrl || '',
+    episodeLinkUrl: item.episodeLinkUrl || '',
+    episodeMediaUrl: cleanNowPlayingItemEpisodeMediaUrl(item.episodeMediaUrl) || '',
+    ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
+    episodeTitle: item.episodeTitle || '',
+    isPublic: item.isPublic || false,
+    podcastFunding: item.podcastFunding || [],
+    podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning || false,
+    podcastId: item.podcastId || '',
+    podcastImageUrl: item.podcastImageUrl || '',
+    podcastIsExplicit: item.podcastIsExplicit || false,
+    podcastLinkUrl: item.podcastLinkUrl || '',
+    podcastShrunkImageUrl: item.podcastShrunkImageUrl || '',
+    podcastSortableTitle: item.podcastSortableTitle || '',
+    podcastTitle: item.podcastTitle || '',
+    podcastValue: item.podcastValue || [],
+    userPlaybackPosition: !item.userPlaybackPosition && item.userPlaybackPosition !== 0
+      ? 0
+      : item.userPlaybackPosition
   }
 }
 
@@ -227,8 +239,6 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.ownerId = data.owner && data.owner.id
     nowPlayingItem.ownerIsPublic = data.owner && data.owner.isPublic
     nowPlayingItem.ownerName = data.owner && data.owner.name
-    nowPlayingItem.podcastAuthors = p.authors
-    nowPlayingItem.podcastCategories = p.categories
     nowPlayingItem.podcastFunding = p.funding
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
