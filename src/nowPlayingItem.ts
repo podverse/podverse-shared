@@ -68,7 +68,7 @@ export const cleanNowPlayingItem = (item: any) => {
   }
 
   return {
-    ..cleanedItem,
+    ...cleanedItem,
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
     episodeDescription: item.episodeDescription || '',
     episodeFunding: item.episodeFunding || [],
