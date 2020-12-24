@@ -9,6 +9,7 @@ export type NowPlayingItem = {
   clipStartTime?: number
   clipTitle?: string
   episodeDescription?: string
+  episodeDuration?: number
   episodeFunding?: string
   episodeId?: string
   episodeImageUrl?: string
@@ -61,6 +62,7 @@ export const cleanNowPlayingItem = (item: any) => {
     ...cleanedItem,
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
     episodeDescription: item.episodeDescription || '',
+    episodeDuration: item.episodeDuration || null,
     episodeFunding: item.episodeFunding || [],
     episodeId: item.episodeId || '',
     episodeImageUrl: item.episodeImageUrl || '',
@@ -88,6 +90,7 @@ export const cleanNowPlayingItem = (item: any) => {
 export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
   return {
     description: item.episodeDescription,
+    duration: item.episodeDuration,
     funding: item.episodeFunding,
     id: item.episodeId,
     linkUrl: item.episodeLinkUrl,
@@ -133,6 +136,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
 ) => {
   return {
     episodeDescription: data.episodeDescription,
+    episodeDuration: data.episodeDuration,
     episodeFunding: data.episodeFunding,
     episodeId: data.episodeId,
     episodeLinkUrl: data.episodeLinkUrl,
@@ -173,6 +177,7 @@ export const convertToNowPlayingItem = (
   // If it has a podcast_id field, assume it is an Episode list item
   if (data.podcast_id) {
     nowPlayingItem.episodeDescription = data.description
+    nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = data.funding
     nowPlayingItem.episodeId = data.id
     nowPlayingItem.episodeLinkUrl = data.linkUrl
@@ -192,6 +197,7 @@ export const convertToNowPlayingItem = (
     // If it has a pubDate field, assume it is an Episode
   } else if (data.pubDate) {
     nowPlayingItem.episodeDescription = data.description
+    nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = data.funding
     nowPlayingItem.episodeId = data.id
     nowPlayingItem.episodeLinkUrl = data.linkUrl
@@ -218,6 +224,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
     nowPlayingItem.episodeDescription = e.description
+    nowPlayingItem.episodeDuration = e.duration
     nowPlayingItem.episodeFunding = e.funding
     nowPlayingItem.episodeId = e.id
     nowPlayingItem.episodeImageUrl = e.imageUrl
