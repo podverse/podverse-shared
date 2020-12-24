@@ -33,16 +33,6 @@ export type NowPlayingItem = {
   userPlaybackPosition?: number
 }
 
-const cleanNowPlayingItemEpisodeMediaUrl = (url?: string) => {
-  if (url && url.indexOf('http://') === 0) {
-    if (mostPopularMediaFileHosts.some(x => url.includes(x))) {
-      return url.replace('http://', 'https://')
-    }
-  }
-
-  return url
-}
-
 export const cleanNowPlayingItem = (item: any) => {
   let cleanedItem = {}
 
@@ -75,7 +65,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeId: item.episodeId || '',
     episodeImageUrl: item.episodeImageUrl || '',
     episodeLinkUrl: item.episodeLinkUrl || '',
-    episodeMediaUrl: cleanNowPlayingItemEpisodeMediaUrl(item.episodeMediaUrl) || '',
+    episodeMediaUrl: item.episodeMediaUrl || '',
     ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
     episodeTitle: item.episodeTitle || '',
     isPublic: item.isPublic || false,
