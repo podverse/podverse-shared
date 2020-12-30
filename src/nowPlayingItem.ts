@@ -98,6 +98,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     pubDate: item.episodePubDate,
     title: item.episodeTitle,
     podcast: {
+      addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
       funding: item.podcastFunding,
       hideDynamicAdsWarning: item.podcastHideDynamicAdsWarning,
       id: item.podcastId,
@@ -135,6 +136,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
   userPlaybackPosition = 0
 ) => {
   return {
+    addByRSSPodcastFeedUrl: data.addByRSSPodcastFeedUrl,
     episodeDescription: data.episodeDescription,
     episodeDuration: data.episodeDuration,
     episodeFunding: data.episodeFunding,
@@ -153,8 +155,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     podcastSortableTitle: data.podcastSortableTitle,
     podcastTitle: data.podcastTitle,
     podcastValue: data.podcastValue,
-    userPlaybackPosition: userPlaybackPosition || 0,
-    addByRSSPodcastFeedUrl: data.addByRSSPodcastFeedUrl
+    userPlaybackPosition: userPlaybackPosition || 0
   }
 }
 
