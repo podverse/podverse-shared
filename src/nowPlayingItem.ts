@@ -8,6 +8,7 @@ export type NowPlayingItem = {
   clipIsOfficialSoundBite?: boolean
   clipStartTime?: number
   clipTitle?: string
+  episodeChaptersUrl?: string
   episodeDescription?: string
   episodeDuration?: number
   episodeFunding?: string
@@ -61,6 +62,7 @@ export const cleanNowPlayingItem = (item: any) => {
   return {
     ...cleanedItem,
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
+    episodeChaptersUrl: item.episodeChaptersUrl || '',
     episodeDescription: item.episodeDescription || '',
     episodeDuration: item.episodeDuration || null,
     episodeFunding: item.episodeFunding || [],
@@ -89,6 +91,7 @@ export const cleanNowPlayingItem = (item: any) => {
 
 export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
   return {
+    chaptersUrl: item.episodeChaptersUrl,
     description: item.episodeDescription,
     duration: item.episodeDuration,
     funding: item.episodeFunding,
@@ -137,6 +140,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
 ) => {
   return {
     addByRSSPodcastFeedUrl: data.addByRSSPodcastFeedUrl,
+    episodeChaptersUrl: data.episodeChaptersUrl,
     episodeDescription: data.episodeDescription,
     episodeDuration: data.episodeDuration,
     episodeFunding: data.episodeFunding,
@@ -177,6 +181,7 @@ export const convertToNowPlayingItem = (
 
   // If it has a podcast_id field, assume it is an Episode list item
   if (data.podcast_id) {
+    nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
     nowPlayingItem.episodeDescription = data.description
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = data.funding
@@ -197,6 +202,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.userPlaybackPosition = userPlaybackPosition || 0
     // If it has a pubDate field, assume it is an Episode
   } else if (data.pubDate) {
+    nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
     nowPlayingItem.episodeDescription = data.description
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = data.funding
@@ -224,6 +230,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.clipIsOfficialSoundBite = data.isOfficialSoundBite
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
+    nowPlayingItem.episodeChaptersUrl = e.chaptersUrl
     nowPlayingItem.episodeDescription = e.description
     nowPlayingItem.episodeDuration = e.duration
     nowPlayingItem.episodeFunding = e.funding
