@@ -18,6 +18,7 @@ export type NowPlayingItem = {
   episodeMediaUrl?: string
   episodePubDate?: string
   episodeTitle?: string
+  episodeValue?: any
   isPublic?: boolean
   ownerId?: string
   ownerIsPublic?: boolean
@@ -72,6 +73,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeMediaUrl: item.episodeMediaUrl || '',
     ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
     episodeTitle: item.episodeTitle || '',
+    episodeValue: item.episodeValue || null,
     isPublic: item.isPublic || false,
     podcastFunding: item.podcastFunding || [],
     podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning || false,
@@ -82,7 +84,7 @@ export const cleanNowPlayingItem = (item: any) => {
     podcastShrunkImageUrl: item.podcastShrunkImageUrl || '',
     podcastSortableTitle: item.podcastSortableTitle || '',
     podcastTitle: item.podcastTitle || '',
-    podcastValue: item.podcastValue || [],
+    podcastValue: item.podcastValue || null,
     userPlaybackPosition: !item.userPlaybackPosition && item.userPlaybackPosition !== 0
       ? 0
       : item.userPlaybackPosition
@@ -100,6 +102,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     mediaUrl: item.episodeMediaUrl,
     pubDate: item.episodePubDate,
     title: item.episodeTitle,
+    value: item.episodeValue,
     podcast: {
       addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
       funding: item.podcastFunding,
@@ -149,6 +152,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeMediaUrl: data.episodeMediaUrl,
     episodePubDate: data.episodePubDate,
     episodeTitle: data.episodeTitle,
+    episodeValue: data.episodeValue,
     podcastFunding: data.podcastFunding,
     podcastHideDynamicAdsWarning: data.podcastHideDynamicAdsWarning,
     podcastId: data.podcastId,
@@ -190,6 +194,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
+    nowPlayingItem.episodeValue = data.value
     nowPlayingItem.podcastFunding = data.podcast_funding
     nowPlayingItem.podcastHideDynamicAdsWarning = data.podcast_hideDynamicAdsWarning
     nowPlayingItem.podcastId = data.podcast_id
@@ -211,6 +216,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
+    nowPlayingItem.episodeValue = data.value
     nowPlayingItem.podcastFunding = p.funding
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
@@ -240,6 +246,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = e.mediaUrl
     nowPlayingItem.episodePubDate = e.pubDate
     nowPlayingItem.episodeTitle = e.title
+    nowPlayingItem.episodeValue = e.value
     nowPlayingItem.isPublic = data.isPublic
     nowPlayingItem.ownerId = data.owner && data.owner.id
     nowPlayingItem.ownerIsPublic = data.owner && data.owner.isPublic
