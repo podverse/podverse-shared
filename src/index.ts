@@ -7,4 +7,6 @@ export {
   NowPlayingItem
 } from './nowPlayingItem'
 
-export { mostPopularMediaFileHosts } from './resources/mostPopularMediaFileHosts'
+export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
+
+export { ValueRecipient, ValueTag, ValueTransaction } from './valueTag'
