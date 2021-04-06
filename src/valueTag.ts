@@ -19,12 +19,12 @@ export type ValueRecipient = {
 
 export type ValueRecipientNormalized = {
   address: string
-  amount?: number
+  amount: number
   customKey?: string
   customValue?: unknown
   fee?: boolean | null
   name?: string
-  normalizedSplit?: number
+  normalizedSplit: number
   split: number
   type: string
 }
