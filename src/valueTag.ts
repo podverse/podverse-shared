@@ -30,7 +30,7 @@ export type ValueRecipientNormalized = {
 }
 
 export type ValueTransaction = {
-  createdAt: Date
+  createdAt: number
   method: string
   normalizedValueRecipient: ValueRecipientNormalized
   satoshiStreamStats: SatoshiStreamStats
