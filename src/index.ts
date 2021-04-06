@@ -9,4 +9,4 @@ export {
 
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
 
-export { ValueRecipient, ValueTag, ValueTransaction } from './valueTag'
+export { ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'

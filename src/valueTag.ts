@@ -9,6 +9,16 @@ export type ValueTag = {
 
 export type ValueRecipient = {
   address: string
+  customKey?: string
+  customValue?: unknown
+  fee?: boolean | null
+  name?: string
+  split: number
+  type: string
+}
+
+export type ValueRecipientNormalized = {
+  address: string
   amount?: number
   customKey?: string
   customValue?: unknown
