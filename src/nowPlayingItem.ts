@@ -1,5 +1,3 @@
-import { mostPopularMediaFileHosts } from './resources/mostPopularMediaFileHosts'
-
 export type NowPlayingItem = {
   addByRSSPodcastFeedUrl?: string
   clipEndTime?: number
