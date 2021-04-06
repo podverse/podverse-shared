@@ -31,6 +31,6 @@ export type ValueRecipientNormalized = {
 
 export type ValueTransaction = {
   createdAt: Date
+  normalizedValueRecipient: ValueRecipientNormalized
   satoshiStreamStats: SatoshiStreamStats
-  value: ValueTag
 }
