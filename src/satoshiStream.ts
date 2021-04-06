@@ -1,5 +1,7 @@
 export type SatoshiStreamStats = {
-  podcast: SatoshiStreamStatsPodcast
+  // For mappings of key integer definitions, visit
+  // https://github.com/satoshisstream/satoshis.stream/blob/main/TLV_registry.md#field-7629169
+  7629169: SatoshiStreamStatsPodcast // the "podcast" subject according to SatoshiStream spec
 }
 
 export type SatoshiStreamStatsPodcast = {
