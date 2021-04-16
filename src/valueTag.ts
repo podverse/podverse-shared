@@ -1,6 +1,6 @@
 import { SatoshiStreamStats } from './satoshiStream'
 
-export type Value = {
+export type ValueTag = {
   method: string
   suggested: string
   type: string
