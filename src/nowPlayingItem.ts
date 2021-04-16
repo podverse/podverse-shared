@@ -1,3 +1,5 @@
+import { Transcript, TranscriptRow } from './transcript'
+
 export type NowPlayingItem = {
   addByRSSPodcastFeedUrl?: string
   clipEndTime?: number
@@ -22,6 +24,7 @@ export type NowPlayingItem = {
   ownerId?: string
   ownerIsPublic?: boolean
   ownerName?: string
+  parsedTranscript?: TranscriptRow[]
   podcastFunding?: string
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
@@ -34,13 +37,6 @@ export type NowPlayingItem = {
   podcastTitle?: string
   podcastValue?: any
   userPlaybackPosition?: number
-}
-
-type Transcript = {
-  language?: string
-  rel?: string
-  type?: string
-  value?: string
 }
 
 export const cleanNowPlayingItem = (item: any) => {
