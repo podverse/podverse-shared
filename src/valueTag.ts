@@ -10,7 +10,7 @@ export type Value = {
 export type ValueRecipient = {
   address: string
   customKey?: string
-  customValue?: unknown
+  customValue?: any
   fee?: boolean | null
   name?: string
   split: number
@@ -21,7 +21,7 @@ export type ValueRecipientNormalized = {
   address: string
   amount: number
   customKey?: string
-  customValue?: unknown
+  customValue?: any
   fee?: boolean | null
   name?: string
   normalizedSplit: number
