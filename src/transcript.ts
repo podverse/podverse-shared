@@ -2,7 +2,7 @@ export type Transcript = {
   language?: string
   rel?: string
   type?: string
-  value?: string
+  url?: string
 }
 
 export type TranscriptRow = {
