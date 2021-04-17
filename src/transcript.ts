@@ -1,8 +1,8 @@
 export type Transcript = {
   language?: string
   rel?: string
-  type?: string
-  url?: string
+  type: TranscriptType
+  url: string
 }
 
 export type TranscriptRow = {
@@ -14,3 +14,5 @@ export type TranscriptRow = {
   text: string
   speaker?: string
 }
+
+export type TranscriptType = 'text/html' | 'application/srt' | 'text/vtt' | 'application/json'

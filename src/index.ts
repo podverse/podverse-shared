@@ -8,5 +8,5 @@ export {
   NowPlayingItem
 } from './nowPlayingItem'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
-export { Transcript, TranscriptRow } from './transcript'
+export { Transcript, TranscriptRow, TranscriptType } from './transcript'
 export { ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
