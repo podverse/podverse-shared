@@ -13,7 +13,7 @@ export type ValueRecipient = {
   customValue?: any
   fee?: boolean | null
   name?: string
-  split: number
+  split: number | string
   type: string
 }
 
@@ -25,7 +25,7 @@ export type ValueRecipientNormalized = {
   fee?: boolean | null
   name?: string
   normalizedSplit: number
-  split: number
+  split: number | string
   type: string
 }
 
