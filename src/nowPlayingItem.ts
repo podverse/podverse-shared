@@ -24,7 +24,6 @@ export type NowPlayingItem = {
   ownerId?: string
   ownerIsPublic?: boolean
   ownerName?: string
-  parsedTranscript?: TranscriptRow[]
   podcastFunding?: string
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
