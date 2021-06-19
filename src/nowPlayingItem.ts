@@ -107,6 +107,8 @@ const parseProp = (item: any, key: string, defaultValue: any) => {
     } catch (error) {
       console.log(`parseProp ${key} error`, error)
     }
+  } else if (item[key]) {
+    val = item[key]
   }
   return val
 }
