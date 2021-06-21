@@ -120,6 +120,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     duration: item.episodeDuration,
     funding: parseProp(item, 'episodeFunding', []),
     id: item.episodeId,
+    imageUrl: item.episodeImageUrl,
     linkUrl: item.episodeLinkUrl,
     mediaUrl: item.episodeMediaUrl,
     pubDate: item.episodePubDate,
@@ -172,6 +173,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeDuration: data.episodeDuration,
     episodeFunding: parseProp(data, 'episodeFunding', []),
     episodeId: data.episodeId,
+    episodeImageUrl: data.episodeImageUrl,
     episodeLinkUrl: data.episodeLinkUrl,
     episodeMediaUrl: data.episodeMediaUrl,
     episodePubDate: data.episodePubDate,
@@ -216,6 +218,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = parseProp(data, 'funding', [])
     nowPlayingItem.episodeId = data.id
+    nowPlayingItem.episodeImageUrl = data.imageUrl
     nowPlayingItem.episodeLinkUrl = data.linkUrl
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
@@ -240,6 +243,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = parseProp(data, 'funding', [])
     nowPlayingItem.episodeId = data.id
+    nowPlayingItem.episodeImageUrl = data.imageUrl
     nowPlayingItem.episodeLinkUrl = data.linkUrl
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
