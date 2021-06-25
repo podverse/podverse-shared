@@ -13,7 +13,7 @@ export type SatoshiStreamStatsPodcast = {
   speed: string // speed of player
   pubkey: string // sending node pubkey
   uuid: string // random unique UID we generate
-  amount: number // transaction amount in millisats
+  value_msat: number // transaction amount in millisats
 }
 
 export type SatoshiStreamStatsPodcastIndexId = number | null
