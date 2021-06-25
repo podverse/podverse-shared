@@ -1,7 +1,8 @@
+// For mappings of key integer definitions, visit
+// https://github.com/satoshisstream/satoshis.stream/blob/main/TLV_registry.md#field-7629169
 export type SatoshiStreamStats = {
-  // For mappings of key integer definitions, visit
-  // https://github.com/satoshisstream/satoshis.stream/blob/main/TLV_registry.md#field-7629169
   7629169: SatoshiStreamStatsPodcast // the "podcast" subject according to SatoshiStream spec
+  7629175: SatoshiStreamStatsPodcastIndexId // the feedId of the podcast in Podcast Index
 }
 
 export type SatoshiStreamStatsPodcast = {
@@ -14,3 +15,5 @@ export type SatoshiStreamStatsPodcast = {
   uuid: string // random unique UID we generate
   amount: number // transaction amount
 }
+
+export type SatoshiStreamStatsPodcastIndexId = number | null
