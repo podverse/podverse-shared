@@ -4,7 +4,7 @@ export type ValueTag = {
   method: string
   suggested: string
   type: string
-  valueRecipients: ValueRecipient[]
+  recipients: ValueRecipient[]
 }
 
 export type ValueRecipient = {
