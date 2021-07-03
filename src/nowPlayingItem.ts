@@ -101,7 +101,7 @@ export const cleanNowPlayingItem = (item: any) => {
 const parseProp = (item: any, key: string, defaultValue: any) => {
   let val = defaultValue
   item = item || {}
-  if (typeof item === 'object' && item[key] && !Array.isArray(item[key])) {
+  if (typeof item === 'object' && typeof item[key] === 'string') {
     try {
       val = JSON.parse(item[key])
     } catch (error) {
