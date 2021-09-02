@@ -18,7 +18,7 @@ export type NowPlayingItem = {
   episodeMediaUrl?: string
   episodePubDate?: string
   episodeTitle?: string
-  episodeTranscript?: Transcript | null
+  episodeTranscript?: Transcript
   episodeValue?: any
   isPublic?: boolean
   ownerId?: string
@@ -78,7 +78,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeMediaUrl: item.episodeMediaUrl || '',
     ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
     episodeTitle: item.episodeTitle || '',
-    episodeTranscript: parseProp(item, 'episodeTranscript', null),
+    episodeTranscript: parseProp(item, 'episodeTranscript', []),
     episodeValue: parseProp(item, 'episodeValue', []),
     isPublic: item.isPublic || false,
     podcastFunding: parseProp(item, 'podcastFunding', []),
@@ -125,7 +125,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     mediaUrl: item.episodeMediaUrl,
     pubDate: item.episodePubDate,
     title: item.episodeTitle,
-    transcript: parseProp(item, 'episodeTranscript', null),
+    transcript: parseProp(item, 'episodeTranscript', []),
     value: parseProp(item, 'episodeValue', []),
     podcast: {
       addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
@@ -178,7 +178,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeMediaUrl: data.episodeMediaUrl,
     episodePubDate: data.episodePubDate,
     episodeTitle: data.episodeTitle,
-    episodeTranscript: parseProp(data, 'episodeTranscript', null),
+    episodeTranscript: parseProp(data, 'episodeTranscript', []),
     episodeValue: parseProp(data, 'episodeValue', []),
     podcastFunding: parseProp(data, 'podcastFunding', []),
     podcastHideDynamicAdsWarning: data.podcastHideDynamicAdsWarning,
@@ -223,7 +223,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
-    nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', null),
+    nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', []),
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
     nowPlayingItem.podcastFunding = parseProp(data, 'podcast_funding', [])
     nowPlayingItem.podcastHideDynamicAdsWarning = data.podcast_hideDynamicAdsWarning
@@ -248,7 +248,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
-    nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', null)
+    nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', [])
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
@@ -280,7 +280,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = e.mediaUrl
     nowPlayingItem.episodePubDate = e.pubDate
     nowPlayingItem.episodeTitle = e.title
-    nowPlayingItem.episodeTranscript = parseProp(e, 'transcript', null)
+    nowPlayingItem.episodeTranscript = parseProp(e, 'transcript', [])
     nowPlayingItem.episodeValue = parseProp(e, 'value', [])
     nowPlayingItem.isPublic = data.isPublic
     nowPlayingItem.ownerId = data.owner && data.owner.id
