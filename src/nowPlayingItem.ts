@@ -9,6 +9,7 @@ export type NowPlayingItem = {
   clipStartTime?: number
   clipTitle?: string
   episodeChaptersUrl?: string
+  episodeCredentialsRequired?: boolean
   episodeDescription?: string
   episodeDuration?: number
   episodeFunding?: any
@@ -24,6 +25,7 @@ export type NowPlayingItem = {
   ownerId?: string
   ownerIsPublic?: boolean
   ownerName?: string
+  podcastCredentialsRequired?: boolean
   podcastFunding?: any
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
@@ -69,6 +71,7 @@ export const cleanNowPlayingItem = (item: any) => {
     ...cleanedItem,
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
     episodeChaptersUrl: item.episodeChaptersUrl || '',
+    episodeCredentialsRequired: item.episodeCredentialsRequired || false,
     episodeDescription: item.episodeDescription || '',
     episodeDuration: item.episodeDuration || null,
     episodeFunding: parseProp(item, 'episodeFunding', []),
@@ -81,6 +84,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeTranscript: parseProp(item, 'episodeTranscript', []),
     episodeValue: parseProp(item, 'episodeValue', []),
     isPublic: item.isPublic || false,
+    podcastCredentialsRequired: item.podcastCredentialsRequired || false,
     podcastFunding: parseProp(item, 'podcastFunding', []),
     podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning || false,
     podcastId: item.podcastId || '',
@@ -116,6 +120,7 @@ const parseProp = (item: any, key: string, defaultValue: any) => {
 export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
   return {
     chaptersUrl: item.episodeChaptersUrl,
+    credentialsRequired: item.episodeCredentialsRequired || false,
     description: item.episodeDescription,
     duration: item.episodeDuration,
     funding: parseProp(item, 'episodeFunding', []),
@@ -129,6 +134,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     value: parseProp(item, 'episodeValue', []),
     podcast: {
       addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
+      credentialsRequired: item.podcastCredentialsRequired,
       funding: parseProp(item, 'podcastFunding', []),
       hideDynamicAdsWarning: item.podcastHideDynamicAdsWarning,
       id: item.podcastId,
@@ -169,6 +175,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
   return {
     addByRSSPodcastFeedUrl: data.addByRSSPodcastFeedUrl,
     episodeChaptersUrl: data.episodeChaptersUrl,
+    episodeCredentialsRequired: data.episodeCredentialsRequired,
     episodeDescription: data.episodeDescription,
     episodeDuration: data.episodeDuration,
     episodeFunding: parseProp(data, 'episodeFunding', []),
@@ -180,6 +187,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeTitle: data.episodeTitle,
     episodeTranscript: parseProp(data, 'episodeTranscript', []),
     episodeValue: parseProp(data, 'episodeValue', []),
+    podcastCredentialsRequired: data.podcastCredentialsRequired,
     podcastFunding: parseProp(data, 'podcastFunding', []),
     podcastHideDynamicAdsWarning: data.podcastHideDynamicAdsWarning,
     podcastId: data.podcastId,
@@ -214,6 +222,7 @@ export const convertToNowPlayingItem = (
   // If it has a podcast_id field, assume it is an Episode list item
   if (data.podcast_id) {
     nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
+    nowPlayingItem.episodeCredentialsRequired = data.credentialsRequired
     nowPlayingItem.episodeDescription = data.description
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = parseProp(data, 'funding', [])
@@ -225,6 +234,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeTitle = data.title
     nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', []),
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
+    nowPlayingItem.podcastCredentialsRequired = data.podcast_credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(data, 'podcast_funding', [])
     nowPlayingItem.podcastHideDynamicAdsWarning = data.podcast_hideDynamicAdsWarning
     nowPlayingItem.podcastId = data.podcast_id
@@ -239,6 +249,7 @@ export const convertToNowPlayingItem = (
     // If it has a pubDate field, assume it is an Episode
   } else if (data.pubDate) {
     nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
+    nowPlayingItem.episodeCredentialsRequired = data.credentialsRequired
     nowPlayingItem.episodeDescription = data.description
     nowPlayingItem.episodeDuration = data.duration
     nowPlayingItem.episodeFunding = parseProp(data, 'funding', [])
@@ -250,6 +261,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeTitle = data.title
     nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', [])
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
+    nowPlayingItem.podcastCredentialsRequired = p.credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
@@ -271,6 +283,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
     nowPlayingItem.episodeChaptersUrl = e.chaptersUrl
+    nowPlayingItem.episodeCredentialsRequired = e.credentialsRequired
     nowPlayingItem.episodeDescription = e.description
     nowPlayingItem.episodeDuration = e.duration
     nowPlayingItem.episodeFunding = parseProp(e, 'funding', [])
@@ -286,6 +299,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.ownerId = data.owner && data.owner.id
     nowPlayingItem.ownerIsPublic = data.owner && data.owner.isPublic
     nowPlayingItem.ownerName = data.owner && data.owner.name
+    nowPlayingItem.podcastCredentialsRequired = p.credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
