@@ -16,6 +16,7 @@ export type NowPlayingItem = {
   episodeId?: string
   episodeImageUrl?: string
   episodeLinkUrl?: string
+  episodeMediaType?: string
   episodeMediaUrl?: string
   episodePubDate?: string
   episodeTitle?: string
@@ -78,6 +79,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeId: item.episodeId || '',
     episodeImageUrl: item.episodeImageUrl || '',
     episodeLinkUrl: item.episodeLinkUrl || '',
+    episodeMediaType: item.episodeMediaType || '',
     episodeMediaUrl: item.episodeMediaUrl || '',
     ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
     episodeTitle: item.episodeTitle || '',
@@ -127,6 +129,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     id: item.episodeId,
     imageUrl: item.episodeImageUrl,
     linkUrl: item.episodeLinkUrl,
+    mediaType: item.episodeMediaType,
     mediaUrl: item.episodeMediaUrl,
     pubDate: item.episodePubDate,
     title: item.episodeTitle,
@@ -182,6 +185,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeId: data.episodeId,
     episodeImageUrl: data.episodeImageUrl,
     episodeLinkUrl: data.episodeLinkUrl,
+    episodeMediaType: data.episodeMediaType,
     episodeMediaUrl: data.episodeMediaUrl,
     episodePubDate: data.episodePubDate,
     episodeTitle: data.episodeTitle,
@@ -229,6 +233,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeId = data.id
     nowPlayingItem.episodeImageUrl = data.imageUrl
     nowPlayingItem.episodeLinkUrl = data.linkUrl
+    nowPlayingItem.episodeMediaType = data.mediaType
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
@@ -256,6 +261,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeId = data.id
     nowPlayingItem.episodeImageUrl = data.imageUrl
     nowPlayingItem.episodeLinkUrl = data.linkUrl
+    nowPlayingItem.episodeMediaType = data.mediaType
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeTitle = data.title
@@ -290,6 +296,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeId = e.id
     nowPlayingItem.episodeImageUrl = e.imageUrl
     nowPlayingItem.episodeLinkUrl = e.linkUrl
+    nowPlayingItem.episodeMediaType = e.mediaType
     nowPlayingItem.episodeMediaUrl = e.mediaUrl
     nowPlayingItem.episodePubDate = e.pubDate
     nowPlayingItem.episodeTitle = e.title
