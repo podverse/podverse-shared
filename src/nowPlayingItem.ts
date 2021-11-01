@@ -326,3 +326,7 @@ export const convertToNowPlayingItem = (
 
   return nowPlayingItem
 }
+
+export const checkIfVideoFileType = (nowPlayingItem?: NowPlayingItem) => {
+  return nowPlayingItem?.episodeMediaType && nowPlayingItem.episodeMediaType.indexOf('video') >= 0
+}
