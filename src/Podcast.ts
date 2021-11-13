@@ -1,4 +1,4 @@
-import { Funding, ValueTag } from ".";
+import { Author, Category, Funding, ValueTag } from ".";
 
 export type Podcast = {
   id: string
@@ -23,4 +23,6 @@ export type Podcast = {
   title?: string | null
   type?: string | null
   value: ValueTag[] | null
+  authors?: Author[] | null
+  categories?: Category[] | null
 }

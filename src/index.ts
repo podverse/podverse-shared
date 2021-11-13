@@ -1,3 +1,5 @@
+export { Author } from './Author'
+export { Category } from './Category'
 export { Episode } from './Episode'
 export { Funding } from './funding'
 export { MediaRef } from './MediaRef'
