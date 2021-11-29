@@ -1,5 +1,11 @@
 import { Episode, Funding, ValueTag } from ".";
 
+type Owner = {
+  id: string
+  isPublic: boolean
+  name?: string
+}
+
 export type MediaRef = {
   id: string
   endTime: number | null
@@ -17,4 +23,5 @@ export type MediaRef = {
   startTime: number
   title?: string | null
   episode?: Episode
+  owner?: Owner
 }
