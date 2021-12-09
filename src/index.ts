@@ -14,6 +14,7 @@ export {
 export { Playlist } from './Playlist'
 export { Podcast } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
+export { SocialInteraction } from './socialInteraction'
 export { Transcript, TranscriptRow, TranscriptType } from './transcript'
 export { ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
