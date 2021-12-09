@@ -1,4 +1,4 @@
-import { Funding, Podcast, Transcript, ValueTag } from ".";
+import { Funding, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
 
 export type Episode = {
   id: string
@@ -22,6 +22,7 @@ export type Episode = {
   pastMonthTotalUniquePageviews: number
   pastYearTotalUniquePageviews: number
   pubDate?: Date | null
+  socialInteraction: SocialInteraction[] | null
   title?: string | null
   transcript: Transcript[] | null
   value: ValueTag[] | null

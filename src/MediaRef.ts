@@ -1,4 +1,4 @@
-import { Episode, Funding, ValueTag } from ".";
+import { Episode } from ".";
 
 type Owner = {
   id: string
