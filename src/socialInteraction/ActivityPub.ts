@@ -1,10 +1,10 @@
-type Attachment = {
+export type ActivityPubAttachment = {
   mediaType: string
   url: string
 }
 
 export type ActivityPubNote = {
-  attachment: Attachment[] | null
+  attachment: ActivityPubAttachment[] | null
   attributedTo: string | null
   content: string | null
   id: string
