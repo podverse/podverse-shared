@@ -13,6 +13,7 @@ export type Podcast = {
   lastEpisodePubDate?: Date | null
   lastEpisodeTitle?: string | null
   linkUrl?: string
+  medium?: PodcastMedium
   pastAllTimeTotalUniquePageviews: number
   pastHourTotalUniquePageviews: number
   pastDayTotalUniquePageviews: number
@@ -26,3 +27,5 @@ export type Podcast = {
   authors?: Author[] | null
   categories?: Category[] | null
 }
+
+export type PodcastMedium = 'podcast' | 'music' | 'video' | 'film' | 'audiobook' | 'newsletter' | 'blog' | 'music-video'
