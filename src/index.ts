@@ -12,7 +12,7 @@ export {
   NowPlayingItem
 } from './nowPlayingItem'
 export { Playlist } from './Playlist'
-export { Podcast } from './Podcast'
+export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
 export { ActivityPubAttachment, ActivityPubNote, ActivityPubCollectionPage } from './socialInteraction/ActivityPub'
 export { PVComment } from './socialInteraction/PVComment'

@@ -1,4 +1,4 @@
-import { SocialInteraction } from '.'
+import { PodcastMedium, SocialInteraction } from '.'
 import { Transcript, TranscriptRow } from './transcript'
 
 export type NowPlayingItem = {
@@ -30,11 +30,13 @@ export type NowPlayingItem = {
   ownerName?: string
   podcastCredentialsRequired?: boolean
   podcastFunding?: any
+  podcastHasVideo: boolean
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
   podcastImageUrl?: string
   podcastIndexPodcastId?: string
   podcastIsExplicit?: boolean
+  podcastMedium: PodcastMedium
   podcastLinkUrl?: string
   podcastShrunkImageUrl?: string
   podcastSortableTitle?: string
@@ -91,12 +93,14 @@ export const cleanNowPlayingItem = (item: any) => {
     isPublic: item.isPublic || false,
     podcastCredentialsRequired: item.podcastCredentialsRequired || false,
     podcastFunding: parseProp(item, 'podcastFunding', []),
+    podcastHasVideo: item.podcastHasVideo || false,
     podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning || false,
     podcastId: item.podcastId || '',
     podcastImageUrl: item.podcastImageUrl || '',
     podcastIndexPodcastId: item.podcastIndexPodcastId || '',
     podcastIsExplicit: item.podcastIsExplicit || false,
     podcastLinkUrl: item.podcastLinkUrl || '',
+    podcastMedium: item.podcastMedium || 'podcast',
     podcastShrunkImageUrl: item.podcastShrunkImageUrl || '',
     podcastSortableTitle: item.podcastSortableTitle || '',
     podcastTitle: item.podcastTitle || '',
@@ -143,11 +147,13 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
       addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
       credentialsRequired: item.podcastCredentialsRequired,
       funding: parseProp(item, 'podcastFunding', []),
+      hasVideo: item.podcastHasVideo,
       hideDynamicAdsWarning: item.podcastHideDynamicAdsWarning,
       id: item.podcastId,
       imageUrl: item.podcastImageUrl,
       isExplicit: item.podcastIsExplicit,
       linkUrl: item.podcastLinkUrl,
+      medium: item.podcastMedium,
       podcastIndexId: item.podcastIndexPodcastId,
       shrunkImageUrl: item.podcastShrunkImageUrl,
       sortableTitle: item.podcastSortableTitle,
@@ -198,12 +204,14 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeValue: parseProp(data, 'episodeValue', []),
     podcastCredentialsRequired: data.podcastCredentialsRequired,
     podcastFunding: parseProp(data, 'podcastFunding', []),
+    podcastHasVideo: data.podcastHasVideo,
     podcastHideDynamicAdsWarning: data.podcastHideDynamicAdsWarning,
     podcastId: data.podcastId,
     podcastImageUrl: data.podcastImageUrl,
     podcastIndexPodcastId: data.podcastIndexPodcastId,
     podcastIsExplicit: data.podcastIsExplicit,
     podcastLinkUrl: data.podcastLinkUrl,
+    podcastMedium: data.podcastMedium,
     podcastShrunkImageUrl: data.podcastShrunkImageUrl,
     podcastSortableTitle: data.podcastSortableTitle,
     podcastTitle: data.podcastTitle,
@@ -247,11 +255,13 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
     nowPlayingItem.podcastCredentialsRequired = data.podcast_credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(data, 'podcast_funding', [])
+    nowPlayingItem.podcastHasVideo = data.podcast_hasVideo,
     nowPlayingItem.podcastHideDynamicAdsWarning = data.podcast_hideDynamicAdsWarning
     nowPlayingItem.podcastId = data.podcast_id
     nowPlayingItem.podcastImageUrl = data.podcast_shrunkImageUrl || data.podcast_imageUrl
     nowPlayingItem.podcastIndexPodcastId = data.podcast_podcastIndexId
     nowPlayingItem.podcastLinkUrl = data.podcast_linkUrl
+    nowPlayingItem.podcastMedium = data.podcast_medium
     nowPlayingItem.podcastShrunkImageUrl = data.podcast_shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = data.podcast_sortableTitle
     nowPlayingItem.podcastTitle = data.podcast_title
@@ -276,12 +286,14 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
     nowPlayingItem.podcastCredentialsRequired = p.credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
+    nowPlayingItem.podcastHasVideo = p.hasVideo
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
     nowPlayingItem.podcastImageUrl = p.shrunkImageUrl || p.imageUrl
     nowPlayingItem.podcastIndexPodcastId = p.podcastIndexId
     nowPlayingItem.podcastIsExplicit = p.isExplicit
     nowPlayingItem.podcastLinkUrl = p.linkUrl
+    nowPlayingItem.podcastMedium = p.medium
     nowPlayingItem.podcastShrunkImageUrl = p.shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = p.sortableTitle
     nowPlayingItem.podcastTitle = p.title
@@ -316,12 +328,14 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.ownerName = data.owner && data.owner.name
     nowPlayingItem.podcastCredentialsRequired = p.credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
+    nowPlayingItem.podcastHasVideo = p.hasVideo
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
     nowPlayingItem.podcastIsExplicit = p.isExplicit
     nowPlayingItem.podcastImageUrl = p.shrunkImageUrl || p.imageUrl
     nowPlayingItem.podcastIndexPodcastId = p.podcastIndexId
     nowPlayingItem.podcastLinkUrl = p.linkUrl
+    nowPlayingItem.podcastMedium = p.medium
     nowPlayingItem.podcastShrunkImageUrl = p.shrunkImageUrl
     nowPlayingItem.podcastSortableTitle = p.sortableTitle
     nowPlayingItem.podcastTitle = p.title
