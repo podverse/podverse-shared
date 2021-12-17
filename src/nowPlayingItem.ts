@@ -30,13 +30,13 @@ export type NowPlayingItem = {
   ownerName?: string
   podcastCredentialsRequired?: boolean
   podcastFunding?: any
-  podcastHasVideo: boolean
+  podcastHasVideo?: boolean
   podcastHideDynamicAdsWarning?: boolean
   podcastId?: string
   podcastImageUrl?: string
   podcastIndexPodcastId?: string
   podcastIsExplicit?: boolean
-  podcastMedium: PodcastMedium
+  podcastMedium?: PodcastMedium
   podcastLinkUrl?: string
   podcastShrunkImageUrl?: string
   podcastSortableTitle?: string
