@@ -1,10 +1,11 @@
-import { Author, Category, Funding, ValueTag } from ".";
+import { Author, Category, FeedUrl, Funding, ValueTag } from ".";
 
 export type Podcast = {
   id: string
   podcastIndexId: string
   credentialsRequired: boolean
   description?: string
+  feedUrls?: FeedUrl[]
   funding: Funding[]
   guid?: string
   imageUrl?: string | null
