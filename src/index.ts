@@ -15,7 +15,7 @@ export {
 export { Playlist } from './Playlist'
 export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
-export { ActivityPubAttachment, ActivityPubNote, ActivityPubCollectionPage } from './socialInteraction/ActivityPub'
+export { ActivityPubThreadcapAttachment, ActivityPubThreadcapResponse } from './socialInteraction/ActivityPubThreadcap'
 export { PVComment } from './socialInteraction/PVComment'
 export { SocialInteraction } from './socialInteraction/SocialInteraction'
 export { Transcript, TranscriptRow, TranscriptType } from './transcript'
