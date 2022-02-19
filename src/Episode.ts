@@ -1,4 +1,4 @@
-import { Funding, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
+import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
 
 export type Episode = {
   id: string
@@ -12,9 +12,9 @@ export type Episode = {
   guid?: string | null
   imageUrl?: string | null
   isExplicit: boolean
-  isLiveItem: boolean
   isPublic: boolean
   linkUrl?: string | null
+  liveItem: LiveItem
   mediaFilesize: number
   mediaType?: string | null
   mediaUrl: string
