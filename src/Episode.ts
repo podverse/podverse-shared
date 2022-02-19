@@ -2,6 +2,8 @@ import { Funding, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
 
 export type Episode = {
   id: string
+  alternateEnclosures: EpisodeAlternateEnclosure[]
+  contentLinks: EpisodeContentLinks[]
   credentialsRequired: boolean
   description?: string | null
   duration?: number
@@ -10,6 +12,7 @@ export type Episode = {
   guid?: string | null
   imageUrl?: string | null
   isExplicit: boolean
+  isLiveItem: boolean
   isPublic: boolean
   linkUrl?: string | null
   mediaFilesize: number
@@ -27,4 +30,27 @@ export type Episode = {
   transcript: Transcript[] | null
   value: ValueTag[] | null
   podcast?: Podcast
+}
+
+export type EpisodeAlternateEnclosure = {
+  _default?: boolean
+  _length?: number
+  bitrate?: number
+  codecs?: string
+  height?: number
+  lang?: string
+  rel?: string
+  sources?: EpisodeAlternateEnclosureSource[]
+  title?: string
+  type: string
+}
+
+export type EpisodeAlternateEnclosureSource = {
+  contentType?: string
+  uri: string
+}
+
+export type EpisodeContentLinks = {
+  href: string
+  title?: string
 }
