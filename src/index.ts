@@ -1,6 +1,6 @@
 export { Author } from './Author'
 export { Category } from './Category'
-export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource } from './Episode'
+export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, EpisodeContentLinks } from './Episode'
 export { FeedUrl } from './FeedUrl'
 export { Funding } from './funding'
 export { LiveItem } from './LiveItem'
