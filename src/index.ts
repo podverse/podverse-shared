@@ -16,9 +16,9 @@ export {
 export { Playlist } from './Playlist'
 export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
-export { ActivityPubThreadcapAttachment, ActivityPubThreadcapCommenter, ActivityPubThreadcapCommenterIcon,
-  ActivityPubThreadcapNode, ActivityPubThreadcapNodeComment, ActivityPubThreadcapResponse
-} from './socialInteraction/ActivityPubThreadcap'
+export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
+  ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
+} from './socialInteraction/Threadcap'
 export { PVComment } from './socialInteraction/PVComment'
 export { SocialInteraction } from './socialInteraction/SocialInteraction'
 export { Transcript, TranscriptRow, TranscriptType } from './transcript'
