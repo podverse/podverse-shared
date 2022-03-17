@@ -1,6 +1,6 @@
 export type ThreadcapResponse = {
   protocol: string
-  root: string
+  roots: string
   nodes: {
     [key: string]: ThreadcapNode
   }
