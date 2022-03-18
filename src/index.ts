@@ -16,6 +16,7 @@ export {
 export { Playlist } from './Playlist'
 export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
+export { checkIfAllowedImageOrigin } from './socialInteraction/ActivityPub'
 export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
   ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
 } from './socialInteraction/Threadcap'
