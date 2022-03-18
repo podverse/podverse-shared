@@ -3,6 +3,7 @@ export type PVComment = {
   imageUrl: string | null
   isRoot?: boolean // set true if the top level comment
   // likesCount: number
+  profileIcon: boolean
   published: Date | null
   replies: PVComment[]
   // repliesCount: number
