@@ -18,15 +18,10 @@ export const checkIfAllowedImageOrigin = (commenter: any) => {
 }
 
 export const removeUsernamesFromBeginningOfString = (str: string) => {
-  const regex = /^\B\@([\w\-]+) /
-  let newStr = str
-  let replaced = true
-  do {
-    replaced = newStr.search(regex) >= 0
-    if (replaced) {
-      newStr = newStr.replace(regex, '')
-    }
-  } while (replaced)
-  
-  return newStr
+  /*
+    Remove the first consecutive @username matches that appear in the beginning of the string.
+    This is to remove the unnecessary @usernames that appear in every ActivityPub reply message.
+  */
+  const regex = /^\s*(?:@[^@\s]+ *)+/
+  return str.replace(regex, '')
 }
