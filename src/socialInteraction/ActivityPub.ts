@@ -12,5 +12,7 @@ const allowedImageOrigins = [
 ]
 
 export const checkIfAllowedImageOrigin = (commenter: any) => {
-  return allowedImageOrigins.some((origin: string) => commenter.url && commenter.url.indexOf(origin) >= 0)
+  return allowedImageOrigins.some((origin: string) => {
+    return commenter.url && commenter.url.indexOf(origin) >= 0
+  })
 }
