@@ -12,8 +12,10 @@ export type ThreadcapResponse = {
 export type ThreadcapNode = {
   comment: ThreadcapNodeComment
   commentAsof: Date
+  commentError?: string
   replies: string[]
   repliesAsof: Date
+  repliesError?: string
 }
 
 export type ThreadcapNodeComment = {
