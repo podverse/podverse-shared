@@ -16,9 +16,9 @@ export {
 export { Playlist } from './Playlist'
 export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
-export { checkIfAllowedImageOrigin } from './socialInteraction/ActivityPub'
-export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
-  ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
+export { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './socialInteraction/ActivityPub'
+export { convertThreadcapResponseToPVComment, ThreadcapAttachment, ThreadcapCommenter,
+  ThreadcapCommenterIcon, ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
 } from './socialInteraction/Threadcap'
 export { PVComment } from './socialInteraction/PVComment'
 export { SocialInteraction } from './socialInteraction/SocialInteraction'
@@ -28,3 +28,4 @@ export { User } from './User'
 export { UserHistoryItem } from './UserHistoryItem'
 export { UserNowPlayingItem } from './UserNowPlayingItem'
 export { UserQueueItem } from './UserQueueItem'
+export { decodeHtml } from './util'
