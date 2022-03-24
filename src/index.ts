@@ -21,7 +21,7 @@ export { convertThreadcapResponseToPVComment, ThreadcapAttachment, ThreadcapComm
   ThreadcapCommenterIcon, ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
 } from './socialInteraction/Threadcap'
 export { PVComment } from './socialInteraction/PVComment'
-export { SocialInteraction } from './socialInteraction/SocialInteraction'
+export { checkIfHasSupportedCommentTag, SocialInteraction } from './socialInteraction/SocialInteraction'
 export { Transcript, TranscriptRow, TranscriptType } from './transcript'
 export { ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
