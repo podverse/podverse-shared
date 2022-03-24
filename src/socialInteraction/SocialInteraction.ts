@@ -18,3 +18,17 @@ export const checkIfHasSupportedCommentTag = (episode: Episode) => {
         si.protocol === 'twitter'
     ))
 }
+
+export const SocialInteractionKeys = {
+  platform: {
+    activitypub: 'activitypub',
+    castopod: 'castopod',
+    mastodon: 'mastodon',
+    peertube: 'peertube',
+    twitter: 'twitter'
+  },
+  protocol: {
+    activitypub: 'activitypub',
+    twitter: 'twitter'
+  }
+}
