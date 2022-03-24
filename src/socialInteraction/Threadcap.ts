@@ -2,7 +2,7 @@
 import striptags from 'striptags'
 import { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './ActivityPub'
 import { PVComment } from './PVComment'
-import { decodeHtml } from '../util'
+import { decodeHtml, getLocationURL } from '../util'
 
 export type ThreadcapResponse = {
   protocol: string
@@ -58,12 +58,14 @@ const parseUserInfo = (comment: any, protocol: string, commenters: { [key: strin
   const commenter = commenters[comment.attributedTo]
 
   if (protocol === 'activitypub' || protocol === 'mastodon') {
-    const url = new URL(comment.attributedTo)
-    const hostname = url.hostname
-    const segments = url.pathname.split('/')
-    const last = segments.pop() || segments.pop() // Handle potential trailing slash
-    if (hostname && last) {
-      username = `${last}@${hostname}`
+    const url = getLocationURL(comment.attributedTo)
+    if (url) {
+      const hostname = url.hostname
+      const segments = url.pathname.split('/')
+      const last = segments.pop() || segments.pop() // Handle potential trailing slash
+      if (hostname && last) {
+        username = `${last}@${hostname}`
+      }
     }
 
     const isAllowedImageOrigin = checkIfAllowedImageOrigin(commenter)
