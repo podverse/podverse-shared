@@ -8,7 +8,7 @@ export declare type SocialInteraction = {
 }
 
 export const checkIfHasSupportedCommentTag = (episode: Episode) => {
-  return episode.socialInteraction &&
+  return !!(episode.socialInteraction &&
     episode.socialInteraction.some(
       (si: SocialInteraction) =>
         si.platform === 'activitypub' ||
@@ -16,5 +16,5 @@ export const checkIfHasSupportedCommentTag = (episode: Episode) => {
         si.platform === 'mastodon' ||
         si.platform === 'twitter' ||
         si.protocol === 'twitter'
-    )
+    ))
 }
