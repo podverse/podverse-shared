@@ -19,3 +19,21 @@ export const getLocationURL = (href: string) => {
     hash: match[7]
   }
 }
+
+export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
+  const arr = str.split(',')
+  const persons = arr.map((str: string) => {
+    let name = ''
+    let url = ''
+    if (str.indexOf('<') && str.indexOf('>') > str.indexOf('<')) {
+      name = str.substring(0, str.indexOf('<'))
+      url = str.substring(str.indexOf('<') + 1, str.indexOf('>'))
+    } else {
+      name = str.substring(0, str.indexOf('<'))
+    }
+
+    return { name, url }
+  })
+
+  return persons
+}
