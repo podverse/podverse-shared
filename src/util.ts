@@ -29,7 +29,7 @@ export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
       name = str.substring(0, str.indexOf('<'))
       url = str.substring(str.indexOf('<') + 1, str.indexOf('>'))
     } else {
-      name = str.substring(0, str.indexOf('<'))
+      name = str
     }
 
     return { name, url }
