@@ -21,7 +21,9 @@ export const getLocationURL = (href: string) => {
 }
 
 export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
-  const arr = str.split(',')
+  if (!str) return []
+
+  const arr = str.split(',')  
   const persons = arr.map((str: string) => {
     let name = ''
     let url = ''
