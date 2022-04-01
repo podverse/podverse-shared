@@ -4,6 +4,7 @@ export declare type SocialInteraction = {
   id?: string
   platform?: string
   protocol?: string
+  uri?: string
   url?: string
 }
 
