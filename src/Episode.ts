@@ -26,6 +26,7 @@ export type Episode = {
   pastYearTotalUniquePageviews: number
   pubDate?: Date | null
   socialInteraction: SocialInteraction[] | null
+  subtitle?: string | null
   title?: string | null
   transcript: Transcript[] | null
   value: ValueTag[] | null

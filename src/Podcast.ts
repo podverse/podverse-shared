@@ -22,6 +22,7 @@ export type Podcast = {
   pastMonthTotalUniquePageviews: number
   pastYearTotalUniquePageviews: number
   shrunkImageUrl?: string | null
+  subtitle?: string
   title?: string | null
   type?: string | null
   value: ValueTag[] | null

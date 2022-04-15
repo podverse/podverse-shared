@@ -22,6 +22,7 @@ export type NowPlayingItem = {
   episodeMediaUrl?: string
   episodePubDate?: string
   episodeSocialInteraction?: SocialInteraction
+  episodeSubtitle?: string
   episodeTitle?: string
   episodeTranscript?: Transcript
   episodeValue?: any
@@ -89,6 +90,7 @@ export const cleanNowPlayingItem = (item: any) => {
     episodeMediaUrl: item.episodeMediaUrl || '',
     ...(item.episodePubDate ? { episodePubDate: item.episodePubDate } : {}),
     episodeSocialInteraction: parseProp(item, 'episodeSocialInteraction', []),
+    episodeSubtitle: item.episodeSubtitle || '',
     episodeTitle: item.episodeTitle || '',
     episodeTranscript: parseProp(item, 'episodeTranscript', []),
     episodeValue: parseProp(item, 'episodeValue', []),
@@ -143,6 +145,7 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
     mediaUrl: item.episodeMediaUrl,
     pubDate: item.episodePubDate,
     socialInteraction: item.episodeSocialInteraction,
+    subtitle: item.episodeSubtitle,
     title: item.episodeTitle,
     transcript: parseProp(item, 'episodeTranscript', []),
     value: parseProp(item, 'episodeValue', []),
@@ -203,6 +206,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     episodeMediaUrl: data.episodeMediaUrl,
     episodePubDate: data.episodePubDate,
     episodeSocialInteraction: parseProp(data, 'episodeSocialInteraction', []),
+    episodeSubtitle: data.episodeSubtitle,
     episodeTitle: data.episodeTitle,
     episodeTranscript: parseProp(data, 'episodeTranscript', []),
     episodeValue: parseProp(data, 'episodeValue', []),
@@ -255,6 +259,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeSocialInteraction = data.socialInteraction
+    nowPlayingItem.episodeSubtitle = data.subtitle
     nowPlayingItem.episodeTitle = data.title
     nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', []),
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
@@ -287,6 +292,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = data.mediaUrl
     nowPlayingItem.episodePubDate = data.pubDate
     nowPlayingItem.episodeSocialInteraction = parseProp(data, 'socialInteraction', [])
+    nowPlayingItem.episodeSubtitle = data.subtitle
     nowPlayingItem.episodeTitle = data.title
     nowPlayingItem.episodeTranscript = parseProp(data, 'transcript', [])
     nowPlayingItem.episodeValue = parseProp(data, 'value', [])
@@ -326,6 +332,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.episodeMediaUrl = e.mediaUrl
     nowPlayingItem.episodePubDate = e.pubDate
     nowPlayingItem.episodeSocialInteraction = parseProp(e, 'socialInteraction', [])
+    nowPlayingItem.episodeSubtitle = e.subtitle
     nowPlayingItem.episodeTitle = e.title
     nowPlayingItem.episodeTranscript = parseProp(e, 'transcript', [])
     nowPlayingItem.episodeValue = parseProp(e, 'value', [])
