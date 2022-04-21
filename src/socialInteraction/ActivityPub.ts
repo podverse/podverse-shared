@@ -1,14 +1,24 @@
 const allowedImageOrigins = [
+  'https://bitcoinhackers.org',
+  'https://cawfee.club',
   'https://comments.podfriend.com',
   'https://engineered.space',
   'https://fosstodon.org',
+  'https://freeatlantis.com',
+  'https://friendica.eskimo.com',
   'https://itmslaves.com',
+  'https://liberdon.com',
   'https://mastodon.cloud',
+  'https://mastodon.online',
   'https://mastodon.social',
   'https://noagendasocial.com',
   'https://podcastindex.social',
+  'https://quanta.wiki',
   'https://sasuke.social',
-  'https://social.medusmedia.com'
+  'https://social.librem.one',
+  'https://social.medusmedia.com',
+  'https://twit.social',
+  'https://www.sliekcastopod.com'
 ]
 
 export const checkIfAllowedImageOrigin = (commenter: any) => {
