@@ -1,4 +1,5 @@
 import { Author, Category, FeedUrl, Funding, ValueTag } from ".";
+import { LiveItemStatus } from "./LiveItem";
 
 export type Podcast = {
   id: string
@@ -13,6 +14,7 @@ export type Podcast = {
   language?: string
   lastEpisodePubDate?: Date | null
   lastEpisodeTitle?: string | null
+  latestLiveItemStatus: LiveItemStatus
   linkUrl?: string
   medium?: PodcastMedium
   pastAllTimeTotalUniquePageviews: number
