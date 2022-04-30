@@ -1,7 +1,9 @@
 import { Episode } from ".";
 
+export type LiveItemStatus = 'pending' | 'live' | 'ended' | 'none'
+
 export type LiveItem = {
-  status: 'pending' | 'live' | 'ended'
+  status: LiveItemStatus
   start: Date
   end: Date | null
   episode: Episode
