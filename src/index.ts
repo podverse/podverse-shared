@@ -1,9 +1,10 @@
 export { Author } from './Author'
 export { Category } from './Category'
-export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, EpisodeContentLinks } from './Episode'
+export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, EpisodeContentLinks,
+  ParsedEpisode } from './Episode'
 export { FeedUrl } from './FeedUrl'
 export { Funding } from './funding'
-export { LiveItem, LiveItemStatus } from './LiveItem'
+export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus } from './LiveItem'
 export { MediaRef } from './MediaRef'
 export {
   cleanNowPlayingItem,

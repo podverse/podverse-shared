@@ -1,4 +1,5 @@
 import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
+import { LiveItemStatus } from "./LiveItem";
 
 export type Episode = {
   id: string
@@ -54,4 +55,30 @@ export type EpisodeAlternateEnclosureSource = {
 export type EpisodeContentLinks = {
   href: string
   title?: string
+}
+
+export type ParsedEpisode = {
+  alternateEnclosures: any[]
+  author: any[]
+  chapters?: any
+  contentLinks: any[]
+  description?: string
+  duration?: any
+  enclosure: any
+  explicit: boolean
+  // funding: any[]
+  guid?: string
+  imageURL?: string
+  link?: string
+  liveItemEnd?: Date | null
+  liveItemStart?: Date
+  liveItemStatus?: LiveItemStatus
+  pubDate: any
+  socialInteraction: any[]
+  soundbite: any[]
+  subtitle?: string
+  summary?: string
+  title?: string
+  transcript: any[]
+  value: any[]
 }
