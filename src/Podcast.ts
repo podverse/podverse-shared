@@ -9,6 +9,7 @@ export type Podcast = {
   feedUrls?: FeedUrl[]
   funding: Funding[]
   guid?: string
+  hasLiveItem?: boolean
   imageUrl?: string | null
   isExplicit: boolean
   language?: string
