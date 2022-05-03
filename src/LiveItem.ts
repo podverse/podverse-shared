@@ -30,3 +30,15 @@ export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[
   }
   return latestLiveItemStatus
 }
+
+export const parseLatestLiveItemPubDate = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
+  let latestPubDate = null
+  for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
+    if (
+      !latestPubDate
+      || new Date(parsedLiveItemEpisode.pubDate) > new Date(latestPubDate)) {
+      latestPubDate = parsedLiveItemEpisode.pubDate
+    }
+  }
+  return latestPubDate
+}
