@@ -35,9 +35,13 @@ export const parseLatestLiveItemPubDate = (parsedLiveItemEpisodes: ParsedEpisode
   let latestPubDate = null
   for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
     if (
-      !latestPubDate
-      || new Date(parsedLiveItemEpisode.pubDate) > new Date(latestPubDate)) {
-      latestPubDate = parsedLiveItemEpisode.pubDate
+      parsedLiveItemEpisode.liveItemStatus === 'live'
+      && (
+        !latestPubDate
+        || new Date(parsedLiveItemEpisode.liveItemStart as any) > new Date(latestPubDate)
+      )
+    ) {
+      latestPubDate = parsedLiveItemEpisode.liveItemStart
     }
   }
   return latestPubDate
