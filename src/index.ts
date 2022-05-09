@@ -4,7 +4,7 @@ export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, Ep
   ParsedEpisode } from './Episode'
 export { FeedUrl } from './FeedUrl'
 export { Funding } from './funding'
-export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus } from './LiveItem'
+export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus, parseLatestLiveItemPubDateAndTitle } from './LiveItem'
 export { MediaRef } from './MediaRef'
 export {
   cleanNowPlayingItem,
