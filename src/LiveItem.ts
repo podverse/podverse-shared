@@ -31,18 +31,20 @@ export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[
   return latestLiveItemStatus
 }
 
-export const parseLatestLiveItemPubDate = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
-  let latestPubDate = null
+export const parseLatestLiveItemPubDateAndTitle = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
+  let liveItemLatestPubDate = null
+  let liveItemTitle = ''
   for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
     if (
       parsedLiveItemEpisode.liveItemStatus === 'live'
       && (
-        !latestPubDate
-        || new Date(parsedLiveItemEpisode.liveItemStart as any) > new Date(latestPubDate)
+        !liveItemLatestPubDate
+        || new Date(parsedLiveItemEpisode.liveItemStart as any) > new Date(liveItemLatestPubDate)
       )
     ) {
-      latestPubDate = parsedLiveItemEpisode.liveItemStart
+      liveItemLatestPubDate = parsedLiveItemEpisode.liveItemStart
+      liveItemTitle = parsedLiveItemEpisode.title || 'Untitled Livestream'
     }
   }
-  return latestPubDate
+  return { liveItemLatestPubDate, liveItemTitle }
 }
