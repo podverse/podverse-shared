@@ -31,9 +31,10 @@ export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[
   return latestLiveItemStatus
 }
 
-export const parseLatestLiveItemPubDateAndTitle = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
+export const parseLatestLiveItemInfo = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
   let liveItemLatestPubDate = null
-  let liveItemTitle = ''
+  let liveItemLatestTitle = ''
+  let liveItemLatestImageUrl = ''
   for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
     if (
       parsedLiveItemEpisode.liveItemStatus === 'live'
@@ -43,8 +44,9 @@ export const parseLatestLiveItemPubDateAndTitle = (parsedLiveItemEpisodes: Parse
       )
     ) {
       liveItemLatestPubDate = parsedLiveItemEpisode.liveItemStart
-      liveItemTitle = parsedLiveItemEpisode.title || 'Untitled Livestream'
+      liveItemLatestTitle = parsedLiveItemEpisode.title || 'Untitled Livestream'
+      liveItemLatestImageUrl = parsedLiveItemEpisode.imageURL || ''
     }
   }
-  return { liveItemLatestPubDate, liveItemTitle }
+  return { liveItemLatestImageUrl, liveItemLatestPubDate, liveItemLatestTitle }
 }
