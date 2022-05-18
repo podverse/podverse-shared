@@ -36,3 +36,7 @@ export type ValueTransaction = {
   satoshiStreamStats: SatoshiStreamStats
   type: string
 }
+
+export const getLightningKeysendValueItem = (valueTags?: ValueTag[]) => {
+  return valueTags?.find((valueTag) valueTag.method === 'keysend' && valueTag.type === 'lightning')
+}
