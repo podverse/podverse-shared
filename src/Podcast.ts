@@ -10,6 +10,7 @@ export type Podcast = {
   funding: Funding[]
   guid?: string
   hasLiveItem?: boolean
+  hasPodcastIndexValueTag?: boolean
   imageUrl?: string | null
   isExplicit: boolean
   language?: string
