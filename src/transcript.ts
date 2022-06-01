@@ -15,4 +15,4 @@ export type TranscriptRow = {
   speaker?: string
 }
 
-export type TranscriptType = 'text/html' | 'application/srt' | 'text/vtt' | 'application/json'
+export type TranscriptType = 'text/html' | 'application/srt' | 'text/srt' | 'text/vtt' | 'application/json'
