@@ -42,7 +42,7 @@ export type EpisodeAlternateEnclosure = {
   height?: number
   lang?: string
   rel?: string
-  sources?: EpisodeAlternateEnclosureSource[]
+  source?: EpisodeAlternateEnclosureSource[]
   title?: string
   type: string
 }
