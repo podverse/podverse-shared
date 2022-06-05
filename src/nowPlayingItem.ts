@@ -11,6 +11,7 @@ export type NowPlayingItem = {
   clipStartTime?: number
   clipTitle?: string
   episodeAlternateEnclosures?: EpisodeAlternateEnclosure[]
+  episodeAlternateEnclosureSelected?: EpisodeAlternateEnclosure | null
   episodeChaptersUrl?: string
   episodeCredentialsRequired?: boolean
   episodeDescription?: string
@@ -80,6 +81,7 @@ export const cleanNowPlayingItem = (item: any) => {
     ...cleanedItem,
     addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl || '',
     episodeAlternateEnclosures: parseProp(item, 'episodeAlternateEnclosures', []),
+    episodeAlternateEnclosureSelected: parseProp(item, 'episodeAlternateEnclosureSelected', null),
     episodeChaptersUrl: item.episodeChaptersUrl || '',
     episodeCredentialsRequired: item.episodeCredentialsRequired || false,
     episodeDescription: item.episodeDescription || '',
@@ -198,6 +200,7 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
   return {
     addByRSSPodcastFeedUrl: data.addByRSSPodcastFeedUrl,
     episodeAlternateEnclosures: parseProp(data, 'episodeAlternateEnclosures', []),
+    episodeAlternateEnclosureSelected: parseProp(data, 'episodeAlternateEnclosureSelected', null),
     episodeChaptersUrl: data.episodeChaptersUrl,
     episodeCredentialsRequired: data.episodeCredentialsRequired,
     episodeDescription: data.episodeDescription,
@@ -252,6 +255,7 @@ export const convertToNowPlayingItem = (
   // If it has a podcast_id field, assume it is an Episode list item
   if (data.podcast_id) {
     nowPlayingItem.episodeAlternateEnclosures = parseProp(data, 'alternateEnclosures', []),
+    nowPlayingItem.episodeAlternateEnclosureSelected = null,
     nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
     nowPlayingItem.episodeCredentialsRequired = data.credentialsRequired
     nowPlayingItem.episodeDescription = data.description
@@ -286,6 +290,7 @@ export const convertToNowPlayingItem = (
     // If it has a pubDate field, assume it is an Episode
   } else if (data.pubDate) {
     nowPlayingItem.episodeAlternateEnclosures = parseProp(data, 'alternateEnclosures', [])
+    nowPlayingItem.episodeAlternateEnclosureSelected = null
     nowPlayingItem.episodeChaptersUrl = data.chaptersUrl
     nowPlayingItem.episodeCredentialsRequired = data.credentialsRequired
     nowPlayingItem.episodeDescription = data.description
@@ -327,6 +332,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
     nowPlayingItem.episodeAlternateEnclosures = parseProp(e, 'alternateEnclosures', [])
+    nowPlayingItem.episodeAlternateEnclosureSelected = null
     nowPlayingItem.episodeChaptersUrl = e.chaptersUrl
     nowPlayingItem.episodeCredentialsRequired = e.credentialsRequired
     nowPlayingItem.episodeDescription = e.description
