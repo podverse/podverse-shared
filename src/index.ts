@@ -7,6 +7,8 @@ export { Funding } from './funding'
 export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus, parseLatestLiveItemInfo } from './LiveItem'
 export { MediaRef } from './MediaRef'
 export {
+  checkIfVideoFileType,
+  checkIfVideoFileOrVideoLiveType,
   cleanNowPlayingItem,
   convertNowPlayingItemToEpisode,
   convertNowPlayingItemToMediaRef,
