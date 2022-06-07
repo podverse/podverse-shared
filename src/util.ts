@@ -41,10 +41,16 @@ export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
   return persons
 }
 
-export const extractSelectedEnclosureSourceUrl = (nowPlayingItem: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
-  let src = nowPlayingItem.episodeMediaUrl
+export const extractSelectedEnclosureSourceUrl = (nowPlayingItem?: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
+  let src = ''
+
+  if (nowPlayingItem?.episodeMediaUrl) {
+    src = nowPlayingItem.episodeMediaUrl
+  }
+
   if (
-    typeof alternateEnclosureIndexSelected !== 'undefined' 
+    nowPlayingItem
+    && typeof alternateEnclosureIndexSelected !== 'undefined' 
     && typeof alternateEnclosureSourceIndexSelected !== 'undefined' 
     && alternateEnclosureIndexSelected >= 0
     && alternateEnclosureSourceIndexSelected >= 0) {
