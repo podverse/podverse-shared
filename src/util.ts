@@ -57,6 +57,8 @@ export const extractSelectedEnclosureSourceAndContentType = (nowPlayingItem?: No
     nowPlayingItem
     && typeof alternateEnclosureIndexSelected !== 'undefined' 
     && typeof alternateEnclosureSourceIndexSelected !== 'undefined' 
+    && typeof alternateEnclosureIndexSelected === 'number'
+    && typeof alternateEnclosureSourceIndexSelected === 'number'
     && alternateEnclosureIndexSelected >= 0
     && alternateEnclosureSourceIndexSelected >= 0) {
     const alternateEnclosureSelected =
