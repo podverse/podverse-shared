@@ -1,4 +1,5 @@
 import { decode } from 'html-entities'
+import { NowPlayingItem } from './nowPlayingItem';
 
 export const decodeHtml = (html = '') => {
   return decode(html)
@@ -38,4 +39,27 @@ export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
   })
 
   return persons
+}
+
+export const extractSelectedEnclosureSourceUrl = (nowPlayingItem: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
+  let src = nowPlayingItem.episodeMediaUrl
+  if (
+    typeof alternateEnclosureIndexSelected !== 'undefined' 
+    && typeof alternateEnclosureSourceIndexSelected !== 'undefined' 
+    && alternateEnclosureIndexSelected >= 0
+    && alternateEnclosureSourceIndexSelected >= 0) {
+    const alternateEnclosureSelected =
+      nowPlayingItem.episodeAlternateEnclosures
+      && nowPlayingItem.episodeAlternateEnclosures[alternateEnclosureIndexSelected]
+    if (alternateEnclosureSelected) {
+      const alternateEnclosureSourceSelected =
+        alternateEnclosureSelected.source
+        && alternateEnclosureSelected.source[alternateEnclosureSourceIndexSelected]
+      if (alternateEnclosureSourceSelected) {
+        src = alternateEnclosureSourceSelected.uri
+      }
+    }
+  }
+
+  return src
 }
