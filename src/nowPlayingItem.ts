@@ -378,11 +378,11 @@ export const convertToNowPlayingItem = (
 }
 
 export const checkIfVideoFileType = (nowPlayingItem?: NowPlayingItem) => {
-  return nowPlayingItem?.episodeMediaType && nowPlayingItem.episodeMediaType.indexOf('video') >= 0
+  return !!(nowPlayingItem?.episodeMediaType && nowPlayingItem.episodeMediaType.indexOf('video') >= 0)
 }
 
 export const checkIfVideoFileOrVideoLiveType = (mediaType: string) => {
-  return mediaType
+  return !!(mediaType
     && mediaType.indexOf('video') >= 0
-    || mediaType.indexOf('application/x-mpegURL') >= 0
+    || mediaType.indexOf('application/x-mpegURL') >= 0)
 }
