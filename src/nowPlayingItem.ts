@@ -382,7 +382,9 @@ export const checkIfVideoFileType = (nowPlayingItem?: NowPlayingItem) => {
 }
 
 export const checkIfVideoFileOrVideoLiveType = (mediaType: string) => {
-  return !!(mediaType
-    && mediaType.indexOf('video') >= 0
-    || mediaType.indexOf('application/x-mpegURL') >= 0)
+  return !!(
+    typeof mediaType === 'string'
+    && 
+      (mediaType.indexOf('video') >= 0
+      || mediaType.indexOf('application/x-mpegURL') >= 0))
 }
