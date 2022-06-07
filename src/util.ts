@@ -49,6 +49,10 @@ export const extractSelectedEnclosureSourceAndContentType = (nowPlayingItem?: No
     src = nowPlayingItem.episodeMediaUrl
   }
 
+  if (nowPlayingItem?.episodeMediaType) {
+    contentType = nowPlayingItem.episodeMediaType
+  }
+
   if (
     nowPlayingItem
     && typeof alternateEnclosureIndexSelected !== 'undefined' 
