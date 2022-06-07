@@ -41,8 +41,9 @@ export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
   return persons
 }
 
-export const extractSelectedEnclosureSourceUrl = (nowPlayingItem?: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
+export const extractSelectedEnclosureSourceAndContentType = (nowPlayingItem?: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
   let src = ''
+  let contentType
 
   if (nowPlayingItem?.episodeMediaUrl) {
     src = nowPlayingItem.episodeMediaUrl
@@ -63,9 +64,10 @@ export const extractSelectedEnclosureSourceUrl = (nowPlayingItem?: NowPlayingIte
         && alternateEnclosureSelected.source[alternateEnclosureSourceIndexSelected]
       if (alternateEnclosureSourceSelected) {
         src = alternateEnclosureSourceSelected.uri
+        contentType = alternateEnclosureSourceSelected.contentType
       }
     }
   }
 
-  return src
+  return { contentType, src }
 }
