@@ -77,3 +77,8 @@ export const extractSelectedEnclosureSourceAndContentType = (nowPlayingItem?: No
 
   return { contentType, src }
 }
+
+export const addParameterToURL = (uri: string, param: string) => {
+    uri += (uri.split('?')[1] ? '&' : '?') + param
+    return uri
+}
