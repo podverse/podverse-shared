@@ -25,7 +25,7 @@ export { convertThreadcapResponseToPVComment, ThreadcapAttachment, ThreadcapComm
 } from './socialInteraction/Threadcap'
 export { PVComment } from './socialInteraction/PVComment'
 export { checkIfHasSupportedCommentTag, SocialInteraction, SocialInteractionKeys } from './socialInteraction/SocialInteraction'
-export { Transcript, TranscriptRow, TranscriptType } from './transcript'
+export { getTranscriptForLocale, Transcript, TranscriptRow, TranscriptType } from './transcript'
 export { addLightningBoltToString, getLightningKeysendValueItem, ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
 export { UserHistoryItem } from './UserHistoryItem'
