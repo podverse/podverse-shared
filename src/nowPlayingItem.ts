@@ -26,7 +26,7 @@ export type NowPlayingItem = {
   episodeSocialInteraction?: SocialInteraction
   episodeSubtitle?: string
   episodeTitle?: string
-  episodeTranscript?: Transcript
+  episodeTranscript?: Transcript[]
   episodeValue?: any
   isPublic?: boolean
   liveItem?: LiveItem
