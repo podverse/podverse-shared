@@ -6,6 +6,7 @@ export type Podcast = {
   podcastIndexId: string
   credentialsRequired: boolean
   description?: string
+  embedApprovedMediaUrlPaths?: string
   feedUrls?: FeedUrl[]
   funding: Funding[]
   guid?: string
