@@ -31,7 +31,7 @@ export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
   ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse, convertThreadcapResponseToPVComment } from './socialInteraction/Threadcap'
 export { SocialInteraction, SocialInteractionKeys, checkIfHasSupportedCommentTag } from './socialInteraction/SocialInteraction'
 export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesSecondsToSeconds, convertSecToHHMMSS, convertSecToHhoursMMinutes, getHHMMSSArray, getHHMMSSMatchesInString, getTimeLabelText, validateHHMMSSString } from './timeHelpers'
-export { Transcript, TranscriptRow, TranscriptType, convertJSONSRTItemToTranscriptRow, convertParsedHTMLItemToTranscriptRow, convertParsedSRTItemToTranscriptRow, convertParsedVTTItemToTranscriptRow, convertTranscriptTimestampToSeconds, getTranscriptForLocale, parseHTMLFile, parseJSONFile, parseSRTFile, parseVTTFile } from './transcript'
+export { Transcript, TranscriptRow, TranscriptType, convertJSONSRTItemToTranscriptRow, convertParsedHTMLItemToTranscriptRow, convertParsedSRTItemToTranscriptRow, convertParsedVTTItemToTranscriptRow, convertTranscriptTimestampToSeconds, getTranscriptForLocale, parseHTMLFile, parseJSONFile, parseSRTFile, parseTranscriptFile, parseVTTFile } from './transcript'
 export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'
 export { addLightningBoltToString, getLightningKeysendValueItem, ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
