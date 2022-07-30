@@ -25,3 +25,13 @@ export type MediaRef = {
   episode?: Episode
   owner?: Owner
 }
+
+export const getMediaRefStartPosition = (clipStartTime?: number | null, sliderWidth?: number, duration?: number) => {
+  let clipStartTimePosition = 0
+
+  if (duration && clipStartTime && sliderWidth) {
+    clipStartTimePosition = sliderWidth * (clipStartTime / duration)
+  }
+
+  return clipStartTimePosition
+}

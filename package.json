@@ -22,8 +22,12 @@
   },
   "homepage": "https://github.com/podverse/podverse-shared#readme",
   "dependencies": {
+    "he": "^1.2.0",
     "html-entities": "^2.3.2",
     "striptags": "^3.2.0",
     "typescript": "3.9.7"
+  },
+  "devDependencies": {
+    "@types/he": "^1.1.2"
   }
 }

@@ -1,24 +1,51 @@
-import { decode } from 'html-entities'
-import { NowPlayingItem } from './nowPlayingItem';
+export const checkIfIdMatchesClipIdOrEpisodeIdOrAddByUrl = (
+  id?: string,
+  clipId?: string,
+  episodeId?: string,
+  addByRSSPodcastFeedUrl?: string
+) => {
+  let matches = false
 
-export const decodeHtml = (html = '') => {
-  return decode(html)
+  if (addByRSSPodcastFeedUrl) {
+    matches = addByRSSPodcastFeedUrl === id
+  } else if (clipId) {
+    matches = clipId === id
+  } else if (episodeId) {
+    matches = episodeId === id
+  }
+
+  return matches
 }
 
-// Function provided by Rems and mattdlockyer
-// https://stackoverflow.com/questions/736513/how-do-i-parse-a-url-into-hostname-and-path-in-javascript
-export const getLocationURL = (href: string) => {
-  var match = href.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)([\/]{0,1}[^?#]*)(\?[^#]*|)(#.*|)$/);
-  return match && {
-    href: href,
-    protocol: match[1],
-    host: match[2],
-    hostname: match[3],
-    port: match[4],
-    pathname: match[5],
-    search: match[6],
-    hash: match[7]
+export const convertBytesToHumanReadableString = (bytes: number) => {
+  const thresh = 1000
+  if (Math.abs(bytes) < thresh) {
+    return bytes + ' B'
   }
+  const units = ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  let u = -1
+  do {
+    bytes /= thresh
+    ++u
+  } while (Math.abs(bytes) >= thresh && u < units.length - 1)
+  return bytes.toFixed(1) + ' ' + units[u]
+}
+
+export const encodeSpacesInString = (str: string) => {
+  return str.replace(/ /g, '%20')
+}
+
+export const numberWithCommas = (x?: number) => {
+  if (!x || x === 0) return x
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+export const overrideImageUrlWithChapterImageUrl = (nowPlayingItem: any, currentChapter: any) => {
+  let imageUrl = nowPlayingItem ? nowPlayingItem.podcastImageUrl : ''
+  if (nowPlayingItem && !nowPlayingItem.clipId && currentChapter && currentChapter.imageUrl) {
+    imageUrl = currentChapter.imageUrl
+  }
+  return imageUrl
 }
 
 export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
@@ -41,44 +68,11 @@ export const parseCommaDelimitedNamesAndURLsString = (str: string) => {
   return persons
 }
 
-export const extractSelectedEnclosureSourceAndContentType = (nowPlayingItem?: NowPlayingItem, alternateEnclosureIndexSelected?: number, alternateEnclosureSourceIndexSelected?: number) => {
-  let src = ''
-  let contentType
-
-  if (nowPlayingItem?.episodeMediaUrl) {
-    src = nowPlayingItem.episodeMediaUrl
+export const removeArticles = (str: string) => {
+  const words = str.split(' ')
+  if (words.length <= 1) return str
+  if (words[0] === 'a' || words[0] === 'the' || words[0] === 'an') {
+    return words.splice(1).join(' ')
   }
-
-  if (nowPlayingItem?.episodeMediaType) {
-    contentType = nowPlayingItem.episodeMediaType
-  }
-
-  if (
-    nowPlayingItem
-    && typeof alternateEnclosureIndexSelected !== 'undefined' 
-    && typeof alternateEnclosureSourceIndexSelected !== 'undefined' 
-    && typeof alternateEnclosureIndexSelected === 'number'
-    && typeof alternateEnclosureSourceIndexSelected === 'number'
-    && alternateEnclosureIndexSelected >= 0
-    && alternateEnclosureSourceIndexSelected >= 0) {
-    const alternateEnclosureSelected =
-      nowPlayingItem.episodeAlternateEnclosures
-      && nowPlayingItem.episodeAlternateEnclosures[alternateEnclosureIndexSelected]
-    if (alternateEnclosureSelected) {
-      const alternateEnclosureSourceSelected =
-        alternateEnclosureSelected.source
-        && alternateEnclosureSelected.source[alternateEnclosureSourceIndexSelected]
-      if (alternateEnclosureSourceSelected) {
-        src = alternateEnclosureSourceSelected.uri
-        contentType = alternateEnclosureSourceSelected.contentType
-      }
-    }
-  }
-
-  return { contentType, src }
-}
-
-export const addParameterToURL = (uri: string, param: string) => {
-    uri += (uri.split('?')[1] ? '&' : '?') + param
-    return uri
+  return str
 }

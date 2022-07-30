@@ -377,6 +377,10 @@ export const convertToNowPlayingItem = (
   return nowPlayingItem
 }
 
+export const checkIfNowPlayingItem = (item?: any, nowPlayingItem?: any) => {
+  return item && nowPlayingItem && (nowPlayingItem.clipId === item.id || nowPlayingItem.episodeId === item.id)
+}
+
 export const checkIfVideoFileType = (nowPlayingItem?: NowPlayingItem) => {
   return !!(nowPlayingItem?.episodeMediaType && nowPlayingItem.episodeMediaType.indexOf('video') >= 0)
 }
@@ -388,3 +392,7 @@ export const checkIfVideoFileOrVideoLiveType = (mediaType?: string) => {
       (mediaType.indexOf('video') >= 0
       || mediaType.indexOf('application/x-mpegURL') >= 0))
 }
+
+export const haveNowPlayingItemsChanged = (lastItem: NowPlayingItem, nextItem: NowPlayingItem) =>
+  (nextItem.clipId && nextItem.clipId !== lastItem.clipId) ||
+  (nextItem.episodeId && nextItem.episodeId !== lastItem.episodeId)

@@ -1,12 +1,17 @@
-export { Author } from './Author'
-export { Category } from './Category'
+export { extractSelectedEnclosureSourceAndContentType } from './alternateEnclosures'
+export { Author, generateAuthorsText } from './Author'
+export { Category, generateCategoriesText, generateCategoryItems } from './Category'
+export { getUsernameAndPasswordFromCredentials } from './credentials'
 export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, EpisodeContentLinks,
   ParsedEpisode } from './Episode'
-export { FeedUrl } from './FeedUrl'
+export { FeedUrl, getAuthorityFeedUrlFromArray } from './FeedUrl'
 export { Funding } from './funding'
+export { checkIfStringContainsHTMLTags, decodeHTMLString, filterHTMLElementsFromString, replaceLinebreaksWithBrTags, removeExtraInfoFromEpisodeDescription, removeHTMLAttributesFromString, removeHTMLFromString } from './htmlHelpers'
 export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus, parseLatestLiveItemInfo } from './LiveItem'
-export { MediaRef } from './MediaRef'
+export { MediaRef, getMediaRefStartPosition } from './MediaRef'
 export {
+  NowPlayingItem,
+  checkIfNowPlayingItem,
   checkIfVideoFileType,
   checkIfVideoFileOrVideoLiveType,
   cleanNowPlayingItem,
@@ -14,21 +19,24 @@ export {
   convertNowPlayingItemToMediaRef,
   convertNowPlayingItemClipToNowPlayingItemEpisode,
   convertToNowPlayingItem,
-  NowPlayingItem
+  haveNowPlayingItemsChanged
 } from './nowPlayingItem'
-export { Playlist } from './Playlist'
+export { parseOpmlFile } from './opml'
+export { Playlist, combineAndSortPlaylistItems } from './Playlist'
 export { Podcast, PodcastMedium } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
 export { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './socialInteraction/ActivityPub'
-export { convertThreadcapResponseToPVComment, ThreadcapAttachment, ThreadcapCommenter,
-  ThreadcapCommenterIcon, ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse
-} from './socialInteraction/Threadcap'
 export { PVComment } from './socialInteraction/PVComment'
-export { checkIfHasSupportedCommentTag, SocialInteraction, SocialInteractionKeys } from './socialInteraction/SocialInteraction'
-export { getTranscriptForLocale, Transcript, TranscriptRow, TranscriptType } from './transcript'
+export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
+  ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse, convertThreadcapResponseToPVComment } from './socialInteraction/Threadcap'
+export { SocialInteraction, SocialInteractionKeys, checkIfHasSupportedCommentTag } from './socialInteraction/SocialInteraction'
+export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesSecondsToSeconds, convertSecToHHMMSS, convertSecToHhoursMMinutes, getHHMMSSArray, getHHMMSSMatchesInString, getTimeLabelText, validateHHMMSSString } from './timeHelpers'
+export { Transcript, TranscriptRow, TranscriptType, convertJSONSRTItemToTranscriptRow, convertParsedHTMLItemToTranscriptRow, convertParsedSRTItemToTranscriptRow, convertParsedVTTItemToTranscriptRow, convertTranscriptTimestampToSeconds, getTranscriptForLocale, parseHTMLFile, parseJSONFile, parseSRTFile, parseVTTFile } from './transcript'
+export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'
 export { addLightningBoltToString, getLightningKeysendValueItem, ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
 export { UserHistoryItem } from './UserHistoryItem'
 export { UserNowPlayingItem } from './UserNowPlayingItem'
 export { UserQueueItem } from './UserQueueItem'
-export { addParameterToURL, decodeHtml, extractSelectedEnclosureSourceAndContentType, getLocationURL, parseCommaDelimitedNamesAndURLsString } from './util'
+export { checkIfIdMatchesClipIdOrEpisodeIdOrAddByUrl, convertBytesToHumanReadableString, encodeSpacesInString, numberWithCommas, overrideImageUrlWithChapterImageUrl, parseCommaDelimitedNamesAndURLsString, removeArticles } from './util'
+export { hasAtLeastXCharacters, hasLowercase, hasMatchingStrings, hasNumber, hasUppercase, isOdd, isValidDate, isValidUrl } from './validators'

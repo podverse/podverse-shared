@@ -1,8 +1,9 @@
 
+import { decode } from 'html-entities'
 import striptags from 'striptags'
 import { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './ActivityPub'
 import { PVComment } from './PVComment'
-import { decodeHtml, getLocationURL } from '../util'
+import { getLocationURL } from '../urls'
 
 export type ThreadcapResponse = {
   protocol: string
@@ -82,6 +83,10 @@ const parseUserInfo = (comment: any, protocol: string, commenters: { [key: strin
 
 const getAttachmentImage = (attachments: ThreadcapAttachment[] | null) => {
   return attachments?.find((attachment: ThreadcapAttachment) => attachment?.mediaType?.indexOf('image') === 0)
+}
+
+const decodeHtml = (html = '') => {
+  return decode(html)
 }
 
 export const convertThreadcapResponseToPVComment = (response: ThreadcapResponse) => {
