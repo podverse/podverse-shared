@@ -20,7 +20,7 @@ export type TranscriptRow = {
 
 export type TranscriptType = 'text/html' | 'application/srt' | 'text/srt' | 'text/vtt' | 'application/json'
 
-export const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
+const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   const { body, endTime, startTime, speaker } = item
   if (!startTime && startTime !== 0) return null
   const startTimeHHMMSS = convertSecToHHMMSS(startTime)
@@ -39,7 +39,7 @@ export const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   } as TranscriptRow
 }
 
-export const convertParsedHTMLItemToTranscriptRow = (item: any, line: number) => {
+const convertParsedHTMLItemToTranscriptRow = (item: any, line: number) => {
   /*
     item[0] = full parsed as single line
     item[1] = speaker
@@ -61,7 +61,7 @@ export const convertParsedHTMLItemToTranscriptRow = (item: any, line: number) =>
   } as TranscriptRow
 }
 
-export const convertParsedSRTItemToTranscriptRow = (item: any) => {
+const convertParsedSRTItemToTranscriptRow = (item: any) => {
   /*
     item[0] = full parsed as single line
     item[1] = line
@@ -95,7 +95,7 @@ export const convertParsedSRTItemToTranscriptRow = (item: any) => {
   } as TranscriptRow
 }
 
-export const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
+const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
   /*
     item[0] = full parsed as single line
     item[1] = start time
@@ -154,7 +154,7 @@ export const getTranscriptForLocale = (transcripts: Transcript[], locale: string
   return transcript
 }
 
-export const parseHTMLFile = (data: string) => {
+const parseHTMLFile = (data: string) => {
   data = (data && data.trim()) || ''
   // eslint-disable-next-line max-len
   const pattern = /\x3ccite\x3e(.+?)\x3a\x3c\x2fcite\x3e\n\s{1,}?\x3ctime\x3e([0-9\x3a\x2c]{1,12})\x3c\x2ftime\x3e\n\s{1,}?\x3cp\x3e(.+?)\x3c\x2fp\x3e/gim
@@ -173,7 +173,7 @@ export const parseHTMLFile = (data: string) => {
   return result
 }
 
-export const parseJSONFile = (data: any) => {
+const parseJSONFile = (data: any) => {
   const { segments } = data
   const result = [] as TranscriptRow[]
 
@@ -187,7 +187,7 @@ export const parseJSONFile = (data: any) => {
   return result
 }
 
-export const parseSRTFile = (data: string) => {
+const parseSRTFile = (data: string) => {
   const pattern = /(\d{1,})\n([0-9\x3a\x2c]{12})\s\x2d\x2d\x3e\s([0-9\x3a\x2c]{12})\n((.+?)\x3a\s)?(.*)\n(.*)\n/gim
   let matches
 
@@ -221,7 +221,7 @@ export const parseTranscriptFile = (data: any, transcriptType: TranscriptType) =
   return parsedTranscript
 }
 
-export const parseVTTFile = (data: string) => {
+const parseVTTFile = (data: string) => {
   const pattern = /([0-9\x3a\x2e]{12})\s\x2d\x2d\x3e\s([0-9\x3a\x2e]{12})\n((.+?)\x3a\s)?(.*)\n(.*)\n\n/gim
   let matches
 
