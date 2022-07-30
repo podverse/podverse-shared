@@ -1,5 +1,4 @@
 import he from 'he'
-const cheerio = require('react-native-cheerio')
 
 export const checkIfStringContainsHTMLTags = (text: string) => {
   if (text) {
@@ -35,17 +34,6 @@ export const filterHTMLElementsFromString = (html: string) => {
 export const removeExtraInfoFromEpisodeDescription = (html: string) => {
   html = html.replace('<p>Episode Summary</p>', '')
   return html.replace(/<p>\s*<\/p>/, '')
-}
-
-export const removeHTMLAttributesFromString = (html: string) => {
-  const $ = cheerio.load(html)
-  $('*').each(function() {
-    this.attribs = {
-      ...(this.attribs && this.attribs.href ? { href: this.attribs.href } : {})
-    }
-  })
-
-  return $.html()
 }
 
 export const removeHTMLFromString = (text: string) => {
