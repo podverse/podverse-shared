@@ -126,7 +126,7 @@ const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
   } as TranscriptRow
 }
 
-export const convertTranscriptTimestampToSeconds = (timestamp: string) => {
+const convertTranscriptTimestampToSeconds = (timestamp: string) => {
   // SRT time stamps use this formatting: 00:02:45,170
   let hhmmss = timestamp.split(',')[0]
   // VTT time stamps use this formatting: 00:02:45.170
