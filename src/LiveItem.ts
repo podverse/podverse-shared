@@ -12,16 +12,17 @@ export type LiveItem = {
 export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
   let latestLiveItemStatus = 'none' as LiveItemStatus
   for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
-    if (parsedLiveItemEpisode.liveItemStatus === 'live') {
+    const liveItemStatus = parsedLiveItemEpisode.liveItemStatus?.toLowerCase()
+    if (liveItemStatus === 'live') {
       latestLiveItemStatus = 'live'
       break
     } else if (
-      parsedLiveItemEpisode.liveItemStatus === 'pending'
+      liveItemStatus === 'pending'
       && latestLiveItemStatus !== 'live'
     ) {
       latestLiveItemStatus = 'pending'
     } else if (
-      parsedLiveItemEpisode.liveItemStatus === 'ended'
+      liveItemStatus === 'ended'
       && latestLiveItemStatus !== 'live'
       && latestLiveItemStatus !== 'pending'
     ) {
@@ -36,8 +37,9 @@ export const parseLatestLiveItemInfo = (parsedLiveItemEpisodes: ParsedEpisode[])
   let liveItemLatestTitle = ''
   let liveItemLatestImageUrl = ''
   for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
+    const liveItemStatus = parsedLiveItemEpisode.liveItemStatus?.toLowerCase()
     if (
-      parsedLiveItemEpisode.liveItemStatus === 'live'
+      liveItemStatus === 'live'
       && (
         !liveItemLatestPubDate
         || new Date(parsedLiveItemEpisode.liveItemStart as any) > new Date(liveItemLatestPubDate)
