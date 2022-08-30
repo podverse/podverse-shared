@@ -208,6 +208,13 @@ export const parseTranscriptFile = (data: any, transcriptType: TranscriptType) =
   let parsedTranscript = [] as TranscriptRow[]
 
   if (transcriptType === 'application/json') {
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data)
+      } catch (error) {
+        //
+      }
+    }
     parsedTranscript = parseJSONFile(data)
   } else if (transcriptType === 'application/srt' || transcriptType === 'text/srt') {
     parsedTranscript = parseSRTFile(data)
