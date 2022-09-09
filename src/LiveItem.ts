@@ -7,6 +7,7 @@ export type LiveItem = {
   start: Date
   end: Date | null
   episode: Episode
+  chatIRCURL: string | null
 }
 
 export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
