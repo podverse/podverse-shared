@@ -61,6 +61,7 @@ export type ParsedEpisode = {
   alternateEnclosures: any[]
   author: any[]
   chapters?: any
+  chat?: string
   contentLinks: any[]
   description?: string
   duration?: any
