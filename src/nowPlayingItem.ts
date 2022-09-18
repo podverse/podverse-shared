@@ -8,6 +8,7 @@ export type NowPlayingItem = {
   clipId?: string
   clipIsOfficialChapter?: boolean
   clipIsOfficialSoundBite?: boolean
+  clipLinkUrl?: string
   clipStartTime?: number
   clipTitle?: string
   episodeAlternateEnclosures?: EpisodeAlternateEnclosure[]
@@ -63,6 +64,7 @@ export const cleanNowPlayingItem = (item: any) => {
       clipId: item.clipId || '',
       clipIsOfficialChapter: item.clipIsOfficialChapter || false,
       clipIsOfficialSoundBite: item.clipIsOfficialSoundBite || false,
+      clipLinkUrl: item.clipLinkUrl || '',
       clipStartTime: item.clipStartTime || 0,
       clipTitle: item.clipTitle || '',
     }
@@ -183,6 +185,7 @@ export const convertNowPlayingItemToMediaRef = (item: NowPlayingItem = {}) => {
     isOfficialChapter: item.clipIsOfficialChapter,
     isOfficialSoundBite: item.clipIsOfficialSoundBite,
     isPublic: item.isPublic,
+    linkUrl: item.clipLinkUrl || '',
     startTime: item.clipStartTime,
     title: item.clipTitle,
     owner: {
@@ -329,6 +332,7 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.clipId = data.id
     nowPlayingItem.clipIsOfficialChapter = data.isOfficialChapter
     nowPlayingItem.clipIsOfficialSoundBite = data.isOfficialSoundBite
+    nowPlayingItem.clipLinkUrl = data.linkUrl || ''
     nowPlayingItem.clipStartTime = data.startTime
     nowPlayingItem.clipTitle = data.title
     nowPlayingItem.episodeAlternateEnclosures = parseProp(e, 'alternateEnclosures', [])
