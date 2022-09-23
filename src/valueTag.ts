@@ -35,6 +35,7 @@ export type ValueTransaction = {
   normalizedValueRecipient: ValueRecipientNormalized
   satoshiStreamStats: SatoshiStreamStats
   type: string
+  providerKey: 'alby'
 }
 
 export const getLightningKeysendValueItem = (valueTags?: ValueTag[]) => {
