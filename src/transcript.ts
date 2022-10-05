@@ -18,7 +18,7 @@ export type TranscriptRow = {
   speaker?: string
 }
 
-export type TranscriptType = 'text/html' | 'application/srt' | 'text/srt' | 'text/vtt' | 'application/json'
+export type TranscriptType = 'text/html' | 'application/srt' | 'text/srt' | 'text/vtt' | 'application/json' | 'application/x-subrip'
 
 const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   const { body, endTime, startTime, speaker } = item
