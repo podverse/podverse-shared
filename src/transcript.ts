@@ -216,7 +216,7 @@ export const parseTranscriptFile = (data: any, transcriptType: TranscriptType) =
       }
     }
     parsedTranscript = parseJSONFile(data)
-  } else if (transcriptType === 'application/srt' || transcriptType === 'text/srt') {
+  } else if (transcriptType === 'application/srt' || transcriptType === 'text/srt' || transcriptType === 'application/x-subrip') {
     parsedTranscript = parseSRTFile(data)
   } else if (transcriptType === 'text/html') {
     // parseHTMLFile isn't working for at least this RSS feed https://feeds.buzzsprout.com/1.rss
