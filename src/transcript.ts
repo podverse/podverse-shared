@@ -18,7 +18,13 @@ export type TranscriptRow = {
   speaker?: string
 }
 
-export type TranscriptType = 'text/html' | 'application/srt' | 'text/srt' | 'text/vtt' | 'application/json' | 'application/x-subrip'
+export type TranscriptType = 
+  'text/html'
+  | 'application/json'
+  | 'application/srt'
+  | 'text/srt'
+  | 'text/vtt'
+  | 'application/x-subrip'
 
 const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   const { body, endTime, startTime, speaker } = item
@@ -176,7 +182,7 @@ const parseHTMLFile = (data: string) => {
   */
   if (result.length === 0 && data) {
     const speaker = ''
-    const startTime = 0
+    const startTime = '00:00:00,000'
     const index = 0
     const htmlItem = convertParsedHTMLItemToTranscriptRow([
       data,
