@@ -1,4 +1,4 @@
-import { decodeHTMLString } from "./htmlHelpers"
+import { decodeHTMLString, removeHTMLFromString } from "./htmlHelpers"
 import { convertHHMMSSToSeconds, convertSecToHHMMSS } from "./timeHelpers"
 
 export type Transcript = {
@@ -184,11 +184,12 @@ const parseHTMLFile = (data: string) => {
     const speaker = ''
     const startTime = '00:00:00,000'
     const index = 0
+    const strippedHtml = removeHTMLFromString(data)
     const htmlItem = convertParsedHTMLItemToTranscriptRow([
       data,
       speaker,
       startTime,
-      data
+      strippedHtml
     ], index)
     if (htmlItem) result.push(htmlItem)
   }
