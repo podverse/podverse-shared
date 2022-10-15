@@ -44,7 +44,7 @@ const convertParsedHTMLItemToTranscriptRow = (item: any, line: number) => {
     item[0] = full parsed as single line
     item[1] = speaker
     item[2] = start time
-    item[3] = text
+    item[3] = html text
   */
   const speaker = item[1]
   const startTime = convertTranscriptTimestampToSeconds(item[2])
@@ -168,6 +168,23 @@ const parseHTMLFile = (data: string) => {
     const item = convertParsedHTMLItemToTranscriptRow(matches, index)
     index++
     if (item) result.push(item)
+  }
+
+  /*
+    If a text/html file does not have parsable fields, but it has contents,
+    then convert it into a single row that starts at 0 seconds.
+  */
+  if (result.length === 0 && data) {
+    const speaker = ''
+    const startTime = 0
+    const index = 0
+    const htmlItem = convertParsedHTMLItemToTranscriptRow([
+      data,
+      speaker,
+      startTime,
+      data
+    ], index)
+    if (htmlItem) result.push(htmlItem)
   }
 
   return result
