@@ -23,7 +23,10 @@ export const parseTranslatorsSection = (language: string, str: string) => {
       name: url && regexResults && name ? name.substring(0, regexResults.index) : name,
       url,
     };
-    translatorsSection.translators.push(translator);
+
+    if (translator.name) {
+      translatorsSection.translators.push(translator);
+    }
   }
   return translatorsSection;
 };
