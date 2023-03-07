@@ -31,7 +31,7 @@ export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
   ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse, convertThreadcapResponseToPVComment } from './socialInteraction/Threadcap'
 export { SocialInteraction, SocialInteractionKeys, checkIfHasSupportedCommentTag } from './socialInteraction/SocialInteraction'
 export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesSecondsToSeconds, convertSecToHHMMSS, convertSecToHhoursMMinutes, getHHMMSSArray, getHHMMSSMatchesInString, getTimeLabelText, validateHHMMSSString } from './timeHelpers'
-export { parseTranslatorsSection, Translator, TranslatorSection } from './Translators'
+export { parseTranslatorsSection, Translator, TranslatorsSection } from './Translators'
 export { Transcript, TranscriptRow, TranscriptType, getTranscriptForLocale, parseTranscriptFile } from './transcript'
 export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'
 export { addLightningBoltToString, getLightningKeysendValueItem, ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
