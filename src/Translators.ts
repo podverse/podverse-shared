@@ -1,16 +1,16 @@
-type TranslatorSection = {
+export type TranslatorsSection = {
   language: string;
   translators: Translator[];
 };
 
-type Translator = {
+export type Translator = {
   name: string;
   url?: string | null;
 };
 
 export const parseTranslatorsSection = (language: string, str: string) => {
   const splits = str.split(",");
-  const translatorsSection: TranslatorSection = {
+  const translatorsSection: TranslatorsSection = {
     language,
     translators: [],
   };
