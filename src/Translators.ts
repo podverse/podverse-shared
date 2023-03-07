@@ -20,7 +20,7 @@ export const parseTranslatorsSection = (language: string, str: string) => {
     const regexResults = name.match(new RegExp("<(.*?)>"));
     const url = regexResults && regexResults[1];
     const translator: Translator = {
-      name: url && name ? name.substring(0, regexResults.index) : name,
+      name: url && regexResults && name ? name.substring(0, regexResults.index) : name,
       url,
     };
     translatorsSection.translators.push(translator);
