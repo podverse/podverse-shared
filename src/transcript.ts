@@ -14,7 +14,7 @@ export type TranscriptRow = {
   startTimeFormatted: string | null
   endTime: number
   endTimeFormatted: string | null
-  text: string
+  body: string
   speaker?: string
 }
 
@@ -32,7 +32,7 @@ const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   const startTimeFormatted = convertSecToHHMMSS(startTime)
   if (!endTime && endTime !== 0) return null
   const endTimeFormatted = convertSecToHHMMSS(endTime)
-  const text = body
+  const body = body
 
   return {
     line,
@@ -41,7 +41,7 @@ const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
     endTime,
     endTimeFormatted,
     speaker,
-    text
+    body
   } as TranscriptRow
 }
 
@@ -50,20 +50,20 @@ const convertParsedHTMLItemToTranscriptRow = (item: any, line: number) => {
     item[0] = full parsed as single line
     item[1] = speaker
     item[2] = start time
-    item[3] = html text
+    item[3] = html body
   */
   const speaker = item[1]
   const startTime = convertTranscriptTimestampToSeconds(item[2])
   if (!startTime && startTime !== 0) return null
   const startTimeFormatted = convertSecToHHMMSS(startTime)
-  const text = decodeHTMLString(item[3])
+  const body = decodeHTMLString(item[3])
 
   return {
     line,
     startTime,
     startTimeFormatted,
     speaker,
-    text
+    body
   } as TranscriptRow
 }
 
@@ -75,8 +75,8 @@ const convertParsedSRTItemToTranscriptRow = (item: any) => {
     item[3] = end time
     item[4] = speaker
     item[5] = speaker
-    item[6] = text line 1
-    item[7] = text line 2
+    item[6] = body line 1
+    item[7] = body line 2
   */
 
   const line = parseInt(item[1], 10)
@@ -87,8 +87,8 @@ const convertParsedSRTItemToTranscriptRow = (item: any) => {
   if (!endTime && endTime !== 0) return null
   const endTimeFormatted = convertSecToHHMMSS(endTime)
   const speaker = item[4]
-  let text = item[6]
-  if (item[7]) text += ` ${item[7]}`
+  let body = item[6]
+  if (item[7]) body += ` ${item[7]}`
 
   return {
     line,
@@ -97,7 +97,7 @@ const convertParsedSRTItemToTranscriptRow = (item: any) => {
     endTime,
     endTimeFormatted,
     speaker,
-    text
+    body
   } as TranscriptRow
 }
 
@@ -108,8 +108,8 @@ const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
     item[2] = end time
     item[3] = speaker
     item[4] = speaker
-    item[5] = text line 1
-    item[6] = text line 2
+    item[5] = body line 1
+    item[6] = body line 2
   */
   const startTime = convertTranscriptTimestampToSeconds(item[1])
   if (!startTime && startTime !== 0) return null
@@ -118,8 +118,8 @@ const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
   if (!endTime && endTime !== 0) return null
   const endTimeFormatted = convertSecToHHMMSS(endTime)
   const speaker = item[3]
-  let text = item[5]
-  if (item[6]) text += ` ${item[6]}`
+  let body = item[5]
+  if (item[6]) body += ` ${item[6]}`
 
   return {
     line,
@@ -128,7 +128,7 @@ const convertParsedVTTItemToTranscriptRow = (item: any, line: number) => {
     endTime,
     endTimeFormatted,
     speaker,
-    text
+    body
   } as TranscriptRow
 }
 
