@@ -9,7 +9,7 @@ export type Transcript = {
 }
 
 export type TranscriptRow = {
-  line: number
+  line?: number
   startTime: number
   startTimeFormatted: string | null
   endTime: number
