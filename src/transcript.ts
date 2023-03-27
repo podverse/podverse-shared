@@ -32,7 +32,6 @@ const convertJSONSRTItemToTranscriptRow = (item: any, line: number) => {
   const startTimeFormatted = convertSecToHHMMSS(startTime)
   if (!endTime && endTime !== 0) return null
   const endTimeFormatted = convertSecToHHMMSS(endTime)
-  const body = body
 
   return {
     line,
