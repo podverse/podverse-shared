@@ -28,6 +28,7 @@
     "typescript": "3.9.7"
   },
   "devDependencies": {
-    "@types/he": "^1.1.2"
+    "@types/he": "^1.1.2",
+    "podcast-partytime": "4.6.0-beta.3"
   }
 }
