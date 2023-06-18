@@ -41,9 +41,13 @@ export type ValueTransaction = {
 }
 
 export const getLightningKeysendValueItem = (valueTags?: ValueTag[]) => {
-  return valueTags?.find((valueTag) => valueTag.method === 'keysend' && valueTag.type === 'lightning')
+  return valueTags?.find((valueTag) => checkIfIsLightningKeysendValueTag(valueTag))
 }
 
 export const addLightningBoltToString = (str = '') => {
   return `${str} ⚡️`
+}
+
+export const checkIfIsLightningKeysendValueTag = (valueTag?: ValueTag) => {
+  return valueTag && valueTag.method === 'keysend' && valueTag.type === 'lightning'
 }

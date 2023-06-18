@@ -34,7 +34,8 @@ export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesS
 export { parseTranslatorsSection, Translator, TranslatorsSection } from './Translators'
 export { Transcript, TranscriptRow, TranscriptType, getTranscriptForLocale, parseTranscriptFile } from './transcript'
 export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'
-export { addLightningBoltToString, getLightningKeysendValueItem, ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
+export { addLightningBoltToString, checkIfIsLightningKeysendValueTag, getLightningKeysendValueItem,
+  ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTransaction } from './valueTag'
 export { User } from './User'
 export { UserHistoryItem } from './UserHistoryItem'
 export { UserNowPlayingItem } from './UserNowPlayingItem'
