@@ -1,5 +1,20 @@
-import { SatoshiStreamStats } from './satoshiStream'
 import { Phase6ValueTimeSplit } from 'podcast-partytime/dist/parser/phase/phase-6'
+import { SatoshiStreamStats } from './satoshiStream'
+
+export type ValueTimeSplit = {
+  type: 'remoteItem' | 'remoteItemToAppConverted' | 'localSpecified' | 'localSpecifiedToAppConverted'
+  startTime: number
+  duration: number
+  endTime: number
+  remoteStartTime?: number
+  remotePercentage?: number
+  remoteItem?: {
+    feedGuid?: string
+    itemGuid: string
+    medium?: string
+  }
+  valueTags: ValueTag[]
+}
 
 export type ValueTag = {
   method: string
@@ -7,6 +22,11 @@ export type ValueTag = {
   type: string
   recipients: ValueRecipient[]
   valueTimeSplits?: Phase6ValueTimeSplit[] | null
+  activeValueTimeSplit?: {
+    isActive: boolean
+    startTime: number
+    endTime: number
+  }
 }
 
 export type ValueRecipient = {
