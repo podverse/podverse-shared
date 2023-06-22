@@ -1,6 +1,6 @@
 {
   "name": "podverse-shared",
-  "version": "4.13.1",
+  "version": "4.13.2",
   "description": "Helpers that are used across multiple Podverse modules",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
