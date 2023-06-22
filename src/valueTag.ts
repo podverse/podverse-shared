@@ -27,6 +27,7 @@ export type ValueTag = {
     startTime: number
     endTime: number
   }
+  parentValueTag: ValueTag
 }
 
 export type ValueRecipient = {
