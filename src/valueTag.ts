@@ -14,7 +14,7 @@ export type ValueTimeSplit = {
     medium?: string
   }
   valueTags: ValueTag[]
-  parentValueTag: ValueTag
+  parentValueTag?: ValueTag
 }
 
 export type ValueTag = {
