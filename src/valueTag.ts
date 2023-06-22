@@ -14,6 +14,7 @@ export type ValueTimeSplit = {
     medium?: string
   }
   valueTags: ValueTag[]
+  parentValueTag: ValueTag
 }
 
 export type ValueTag = {
@@ -28,7 +29,6 @@ export type ValueTag = {
     endTime: number
   }
   remotePercentage?: number
-  parentValueTag: ValueTag
 }
 
 export type ValueRecipient = {
