@@ -1,7 +1,7 @@
 export const checkIfContainsStringMatch = (matchStr: string, currentStr: string) => {
   const lowercaseString = matchStr.toLowerCase()
   const regex = new RegExp(`${lowercaseString}|${lowercaseString}.|.${lowercaseString}.|.${lowercaseString}`)
-  return regex.test(currentStr.toLowerCase())
+  return regex.test(currentStr?.toLowerCase() || '')
 }
 
 export const hasAtLeastXCharacters = (str?: string, x = 8) => {
