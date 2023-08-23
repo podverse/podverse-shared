@@ -1,5 +1,5 @@
 export const checkIfContainsStringMatch = (matchStr: string, currentStr: string) => {
-  const lowercaseString = matchStr.toLowerCase()
+  const lowercaseString = matchStr ? matchStr.toLowerCase() : ''
   const regex = new RegExp(`${lowercaseString}|${lowercaseString}.|.${lowercaseString}.|.${lowercaseString}`)
   return regex.test(currentStr?.toLowerCase() || '')
 }
