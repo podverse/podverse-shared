@@ -28,6 +28,8 @@ export type ValueTag = {
     endTime: number
   }
   remotePercentage?: number
+  remoteFeedGuid?: string
+  remoteItemGuid?: string
   parentValueTag?: ValueTag
 }
 
