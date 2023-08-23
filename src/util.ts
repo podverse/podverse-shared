@@ -76,3 +76,8 @@ export const removeArticles = (str: string) => {
   }
   return str
 }
+
+export const capitalizeFirstLetter = (str: string) => {
+  str = str || ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
