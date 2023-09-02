@@ -74,7 +74,7 @@ export type ParsedEpisode = {
   guid?: string
   imageURL?: string
   itunesEpisode?: any
-  itunesEpisodeType?: string | null
+  itunesEpisodeType?: string
   itunesSeason?: any
   link?: string
   liveItemEnd?: Date | null
