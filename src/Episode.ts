@@ -14,9 +14,9 @@ export type Episode = {
   imageUrl?: string | null
   isExplicit: boolean
   isPublic: boolean
-  itunesEpisode?: any;
-  itunesEpisodeType?: string | null;
-  itunesSeason?: any;
+  itunesEpisode?: any
+  itunesEpisodeType?: string | null
+  itunesSeason?: any
   linkUrl?: string | null
   liveItem: LiveItem
   mediaFilesize: number
@@ -73,6 +73,9 @@ export type ParsedEpisode = {
   // funding: any[]
   guid?: string
   imageURL?: string
+  itunesEpisode?: any
+  itunesEpisodeType?: string | null
+  itunesSeason?: any
   link?: string
   liveItemEnd?: Date | null
   liveItemStart?: Date
