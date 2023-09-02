@@ -15,7 +15,7 @@ export type Episode = {
   isExplicit: boolean
   isPublic: boolean
   itunesEpisode?: any;
-  itunesEpisodeType?: string;
+  itunesEpisodeType?: string | null;
   itunesSeason?: any;
   linkUrl?: string | null
   liveItem: LiveItem
