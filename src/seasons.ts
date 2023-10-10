@@ -94,9 +94,9 @@ export const getSeasonOrSerialEpisodesData = ({
     }
 
     if (querySort === _mostRecentKey) {
-      seasonSections = orderBy(seasonSections, ['title'], recentSort)
+      seasonSections = orderBy(seasonSections, ['title'], [recentSort])
     } else if (querySort === _oldestKey) {
-      seasonSections = orderBy(seasonSections, ['title'], oldestSort)
+      seasonSections = orderBy(seasonSections, ['title'], [oldestSort])
     }
 
     if (otherSection?.data?.length > 0) {
@@ -107,13 +107,17 @@ export const getSeasonOrSerialEpisodesData = ({
       seasonSections.push(otherBonusSection)
     }
 
+    const customItunesEpisodeOrderBy = (resultItem: any) => {
+      return resultItem.itunesEpisodeType === _trailerKey
+    }
+
     const finalSections: SeasonSection[] = []
     for (const section of seasonSections) {
       const data = section.data
       if (querySort === _mostRecentKey) {
-        section.data = orderBy(data, ['itunesEpisode'], recentSort)
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [recentSort, recentSort])
       } else if (querySort === _oldestKey) {
-        section.data = orderBy(data, ['itunesEpisode'], oldestSort)
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [oldestSort, oldestSort])
       }
       finalSections.push(section)
     }
