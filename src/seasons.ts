@@ -25,7 +25,7 @@ type NewState = {
   seasonSections: SeasonSection[]
 }
 
-export const getSeasonOrSerialEpisodesData = async ({
+export const getSeasonOrSerialEpisodesData = ({
   data,
   querySort,
   extraParams,
