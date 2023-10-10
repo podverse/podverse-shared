@@ -35,8 +35,8 @@ export const getSeasonOrSerialEpisodesData = ({
 }: Params) => {
   const seasons: any = {}
   let seasonSections = []
-  const oldestSort = 'asc'
-  const recentSort = 'desc'
+  const ascSort = 'asc'
+  const descSort = 'desc'
 
   let newState: NewState = {
     hasSeasons: false,
@@ -94,9 +94,9 @@ export const getSeasonOrSerialEpisodesData = ({
     }
 
     if (querySort === _mostRecentKey) {
-      seasonSections = orderBy(seasonSections, ['title'], [recentSort])
+      seasonSections = orderBy(seasonSections, ['title'], [descSort])
     } else if (querySort === _oldestKey) {
-      seasonSections = orderBy(seasonSections, ['title'], [oldestSort])
+      seasonSections = orderBy(seasonSections, ['title'], [ascSort])
     }
 
     if (otherSection?.data?.length > 0) {
@@ -115,9 +115,9 @@ export const getSeasonOrSerialEpisodesData = ({
     for (const section of seasonSections) {
       const data = section.data
       if (querySort === _mostRecentKey) {
-        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [recentSort, recentSort])
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [ascSort, descSort])
       } else if (querySort === _oldestKey) {
-        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [oldestSort, oldestSort])
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [descSort, ascSort])
       }
       finalSections.push(section)
     }
