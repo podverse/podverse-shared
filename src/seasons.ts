@@ -115,9 +115,9 @@ export const getSeasonOrSerialEpisodesData = ({
     for (const section of seasonSections) {
       const data = section.data
       if (querySort === _mostRecentKey) {
-        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [ascSort, descSort])
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode', 'pubDate'], [ascSort, descSort, descSort])
       } else if (querySort === _oldestKey) {
-        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode'], [descSort, ascSort])
+        section.data = orderBy(data, [customItunesEpisodeOrderBy, 'itunesEpisode', 'pubDate'], [descSort, ascSort, ascSort])
       }
       finalSections.push(section)
     }
