@@ -40,10 +40,12 @@ export type NowPlayingItem = {
   podcastHasVideo?: boolean
   podcastHideDynamicAdsWarning?: boolean
   podcastGuid?: string
+  podcastHasSeasons?: boolean
   podcastId?: string
   podcastImageUrl?: string
   podcastIndexPodcastId?: string
   podcastIsExplicit?: boolean
+  podcastItunesFeedType?: string
   podcastMedium?: PodcastMedium
   podcastLinkUrl?: string
   podcastShrunkImageUrl?: string
@@ -108,12 +110,14 @@ export const cleanNowPlayingItem = (item: any) => {
     podcastCredentialsRequired: item.podcastCredentialsRequired || false,
     podcastFunding: parseProp(item, 'podcastFunding', []),
     podcastGuid: item.podcastGuid || '',
+    podcastHasSeasons: item.podcastHasSeasons || false,
     podcastHasVideo: item.podcastHasVideo || false,
     podcastHideDynamicAdsWarning: item.podcastHideDynamicAdsWarning || false,
     podcastId: item.podcastId || '',
     podcastImageUrl: item.podcastImageUrl || '',
     podcastIndexPodcastId: item.podcastIndexPodcastId || '',
     podcastIsExplicit: item.podcastIsExplicit || false,
+    podcastItunesFeedType: item.podcastItunesFeedType || '',
     podcastLinkUrl: item.podcastLinkUrl || '',
     podcastMedium: item.podcastMedium || 'podcast',
     podcastShrunkImageUrl: item.podcastShrunkImageUrl || '',
@@ -166,11 +170,13 @@ export const convertNowPlayingItemToEpisode = (item: NowPlayingItem) => {
       addByRSSPodcastFeedUrl: item.addByRSSPodcastFeedUrl,
       credentialsRequired: item.podcastCredentialsRequired,
       funding: parseProp(item, 'podcastFunding', []),
+      hasSeasons: item.podcastHasSeasons,
       hasVideo: item.podcastHasVideo,
       hideDynamicAdsWarning: item.podcastHideDynamicAdsWarning,
       id: item.podcastId,
       imageUrl: item.podcastImageUrl,
       isExplicit: item.podcastIsExplicit,
+      itunesFeedType: item.podcastItunesFeedType,
       linkUrl: item.podcastLinkUrl,
       medium: item.podcastMedium,
       podcastGuid: item.podcastGuid,
@@ -231,12 +237,14 @@ export const convertNowPlayingItemClipToNowPlayingItemEpisode = (
     podcastCredentialsRequired: data.podcastCredentialsRequired,
     podcastFunding: parseProp(data, 'podcastFunding', []),
     podcastGuid: data.podcastGuid,
+    podcastHasSeasons: data.podcastHasSeasons,
     podcastHasVideo: data.podcastHasVideo,
     podcastHideDynamicAdsWarning: data.podcastHideDynamicAdsWarning,
     podcastId: data.podcastId,
     podcastImageUrl: data.podcastImageUrl,
     podcastIndexPodcastId: data.podcastIndexPodcastId,
     podcastIsExplicit: data.podcastIsExplicit,
+    podcastItunesFeedType: data.podcastItunesFeedType,
     podcastLinkUrl: data.podcastLinkUrl,
     podcastMedium: data.podcastMedium,
     podcastShrunkImageUrl: data.podcastShrunkImageUrl,
@@ -325,12 +333,14 @@ export const convertToNowPlayingItem = (
     nowPlayingItem.podcastCredentialsRequired = p.credentialsRequired
     nowPlayingItem.podcastFunding = parseProp(p, 'funding', [])
     nowPlayingItem.podcastGuid = p.podcastGuid
+    nowPlayingItem.podcastHasSeasons = p.hasSeasons
     nowPlayingItem.podcastHasVideo = p.hasVideo
     nowPlayingItem.podcastHideDynamicAdsWarning = p.hideDynamicAdsWarning
     nowPlayingItem.podcastId = p.id
     nowPlayingItem.podcastImageUrl = p.shrunkImageUrl || p.imageUrl
     nowPlayingItem.podcastIndexPodcastId = p.podcastIndexId
     nowPlayingItem.podcastIsExplicit = p.isExplicit
+    nowPlayingItem.podcastItunesFeedType = p.itunesFeedType
     nowPlayingItem.podcastLinkUrl = p.linkUrl
     nowPlayingItem.podcastMedium = p.medium
     nowPlayingItem.podcastShrunkImageUrl = p.shrunkImageUrl

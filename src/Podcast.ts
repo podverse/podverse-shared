@@ -12,8 +12,10 @@ export type Podcast = {
   guid?: string
   hasLiveItem?: boolean
   hasPodcastIndexValueTag?: boolean
+  hasSeasons: boolean
   imageUrl?: string | null
   isExplicit: boolean
+  itunesFeedType: string
   language?: string
   lastEpisodePubDate?: Date | null
   lastEpisodeTitle?: string | null
