@@ -94,9 +94,9 @@ export const getSeasonOrSerialEpisodesData = ({
     }
 
     if (querySort === _mostRecentKey) {
-      seasonSections = orderBy(seasonSections, ['title'], [descSort])
+      seasonSections = orderBy(seasonSections, ['seasonKey'], [descSort])
     } else if (querySort === _oldestKey) {
-      seasonSections = orderBy(seasonSections, ['title'], [ascSort])
+      seasonSections = orderBy(seasonSections, ['seasonKey'], [ascSort])
     }
 
     if (otherSection?.data?.length > 0) {
