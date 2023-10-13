@@ -77,7 +77,8 @@ export const getSeasonOrSerialEpisodesData = ({
           const label = isOther ? translator('Other') : `${translator('Season')} ${seasonNumber}`
           title = `${label} - ${translator('Bonus')}`
         } else if (isOther) {
-          orderByNumber = 1000000
+          // Other has the same orderByNumber as Other - Bonus (-0.5).
+          orderByNumber = -0.5
           title = translator('Other')
         }
         
