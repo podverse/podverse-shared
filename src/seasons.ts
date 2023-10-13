@@ -2,6 +2,7 @@ import orderBy from 'lodash/orderBy'
 
 type SeasonSection = {
   seasonKey: string
+  orderByNumber: number
   title: string
   data: any[]
 }
@@ -60,24 +61,28 @@ export const getSeasonOrSerialEpisodesData = ({
       seasons[seasonKey] = seasonEpisodes
     }
 
-    let otherSection: SeasonSection = { seasonKey: '', title: '', data: [] }
-    let otherBonusSection: SeasonSection = { seasonKey: '', title: '', data: [] }
+    let otherSection: SeasonSection = { seasonKey: '', title: '', data: [], orderByNumber: 0 }
+    let otherBonusSection: SeasonSection = { seasonKey: '', title: '', data: [], orderByNumber: -1 }
 
     for (const seasonKey in seasons) {
       if (seasons.hasOwnProperty(seasonKey)) {
         const seasonNumber = seasonKey.split('_')[0]
+        let orderByNumber = parseInt(seasonNumber, 10) || -1
         const isBonus = seasonKey.split('_')[1] === _bonusKey
         const isOther = seasonNumber === _otherKey
 
         let title = `${translator('Season')} ${seasonNumber}`
         if (isBonus) {
+          orderByNumber = orderByNumber + 0.5
           const label = isOther ? translator('Other') : `${translator('Season')} ${seasonNumber}`
           title = `${label} - ${translator('Bonus')}`
         } else if (isOther) {
+          orderByNumber = 1000000
           title = translator('Other')
         }
         
         const section = {
+          orderByNumber,
           seasonKey,
           title,
           data: seasons[seasonKey]
@@ -94,9 +99,9 @@ export const getSeasonOrSerialEpisodesData = ({
     }
 
     if (querySort === _mostRecentKey) {
-      seasonSections = orderBy(seasonSections, ['seasonKey'], [descSort])
+      seasonSections = orderBy(seasonSections, ['orderByNumber'], [descSort])
     } else if (querySort === _oldestKey) {
-      seasonSections = orderBy(seasonSections, ['seasonKey'], [ascSort])
+      seasonSections = orderBy(seasonSections, ['orderByNumber'], [ascSort])
     }
 
     if (otherSection?.data?.length > 0) {
