@@ -6,7 +6,8 @@ export { Episode, EpisodeAlternateEnclosure, EpisodeAlternateEnclosureSource, Ep
   ParsedEpisode } from './Episode'
 export { FeedUrl, getAuthorityFeedUrlFromArray } from './FeedUrl'
 export { Funding } from './funding'
-export { decodeHTMLString, filterHTMLElementsFromString, replaceLinebreaksWithBrTags, removeExtraInfoFromEpisodeDescription, removeHTMLFromString } from './htmlHelpers'
+export { decodeHTMLString, filterHTMLElementsFromString, removeLinebreaks,
+  replaceLinebreaksWithBrTags, removeExtraInfoFromEpisodeDescription, removeHTMLFromString } from './htmlHelpers'
 export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus, parseLatestLiveItemInfo } from './LiveItem'
 export { MediaRef, getMediaRefStartPosition } from './MediaRef'
 export {
