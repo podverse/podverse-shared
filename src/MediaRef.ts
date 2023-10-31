@@ -10,6 +10,7 @@ export type MediaRef = {
   id: string
   endTime: number | null
   imageUrl?: string | null
+  isChapterToc?: boolean | null
   isOfficialChapter: boolean | null
   isOfficialSoundbite: boolean
   isPublic: boolean
