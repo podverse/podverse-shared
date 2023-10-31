@@ -51,3 +51,11 @@ export const replaceLinebreaksWithBrTags = (text: string) => {
   }
   return text
 }
+
+export const removeLinebreaks = (text: string) => {
+  if (text) {
+    const linebreaksRegex = /(?:\r\n|\r|\n)/g
+    text = text.replace(linebreaksRegex, ' ')
+  }
+  return text
+}
