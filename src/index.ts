@@ -13,6 +13,7 @@ export { MediaRef, getMediaRefStartPosition } from './MediaRef'
 export {
   NowPlayingItem,
   checkIfNowPlayingItem,
+  checkIfSameNowPlayingItems,
   checkIfVideoFileType,
   checkIfVideoFileOrVideoLiveType,
   cleanNowPlayingItem,

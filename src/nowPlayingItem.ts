@@ -412,6 +412,15 @@ export const checkIfNowPlayingItem = (item?: any, nowPlayingItem?: any) => {
   return item && nowPlayingItem && (nowPlayingItem.clipId === item.id || nowPlayingItem.episodeId === item.id)
 }
 
+export const checkIfSameNowPlayingItems = (nowPlayingItem?: any, nowPlayingItem2?: any) => {
+  return nowPlayingItem
+    && nowPlayingItem2
+    && (
+      (nowPlayingItem.clipId && nowPlayingItem.clipId === nowPlayingItem2.clipId)
+      || (nowPlayingItem.episodeId && nowPlayingItem.episodeId === nowPlayingItem2.episodeId)
+    )
+}
+
 export const checkIfVideoFileType = (nowPlayingItem?: NowPlayingItem) => {
   return !!(nowPlayingItem?.episodeMediaType && nowPlayingItem.episodeMediaType.indexOf('video') >= 0)
 }
