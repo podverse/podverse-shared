@@ -11,7 +11,6 @@ export type SatoshiStreamStatsPodcast = {
   ts: number // timestamp of when the transaction was created
   action: string // boost or stream
   speed: string // speed of player
-  pubkey: string // sending node pubkey
   uuid: string // random unique UID we generate
   value_msat_total: number // transaction amount in millisats
 }
