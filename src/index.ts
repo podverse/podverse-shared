@@ -33,7 +33,7 @@ export { PVComment } from './socialInteraction/PVComment'
 export { ThreadcapAttachment, ThreadcapCommenter, ThreadcapCommenterIcon,
   ThreadcapNode, ThreadcapNodeComment, ThreadcapResponse, convertThreadcapResponseToPVComment } from './socialInteraction/Threadcap'
 export { SocialInteraction, SocialInteractionKeys, checkIfHasSupportedCommentTag } from './socialInteraction/SocialInteraction'
-export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesSecondsToSeconds, convertSecToHHMMSS, convertSecToHhoursMMinutes, getHHMMSSArray, getHHMMSSMatchesInString, getTimeLabelText, validateHHMMSSString } from './timeHelpers'
+export { convertHHMMSSToAnchorTags, convertHHMMSSToSeconds, convertHoursMinutesSecondsToSeconds, convertSecToFullHHMMSS, convertSecToHHMMSS, convertSecToHhoursMMinutes, getHHMMSSArray, getHHMMSSMatchesInString, getTimeLabelText, validateHHMMSSString } from './timeHelpers'
 export { parseTranslatorsSection, Translator, TranslatorsSection } from './Translators'
 export { Transcript, TranscriptRow, TranscriptType, getTranscriptForLocale, parseTranscriptFile } from './transcript'
 export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'

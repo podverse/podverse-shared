@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export const convertHHMMSSToAnchorTags = (html: string) => {
   const createHHMMSSAnchorTag = (hhmmss: string) => {
     const sec = convertHHMMSSToSeconds(hhmmss)
@@ -75,6 +77,10 @@ export function convertHoursMinutesSecondsToSeconds(hours: number, minutes: numb
   totalSeconds += minutes * 60
   totalSeconds += seconds
   return totalSeconds
+}
+
+export const convertSecToFullHHMMSS = (sec: number) => {
+  return moment.utc(sec * 1000).format('HH:mm:ss')
 }
 
 export const convertSecToHHMMSS = (sec: number) => {
