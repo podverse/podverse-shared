@@ -38,4 +38,4 @@ export type Podcast = {
   categories?: Category[] | null
 }
 
-export type PodcastMedium = 'podcast' | 'music' | 'video' | 'film' | 'audiobook' | 'newsletter' | 'blog' | 'music-video'
+export type PodcastMedium = 'podcast' | 'music' | 'video' | 'film' | 'audiobook' | 'newsletter' | 'blog' | 'music-video' | 'mixed'
