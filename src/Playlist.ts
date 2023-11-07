@@ -3,6 +3,7 @@ import { Episode, MediaRef, User } from ".";
 export type Playlist = {
   id: string
   description?: string | null
+  isDefault: boolean
   isPublic: boolean
   itemCount: number
   itemsOrder: string[]
