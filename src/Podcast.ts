@@ -13,6 +13,7 @@ export type Podcast = {
   hasLiveItem?: boolean
   hasPodcastIndexValueTag?: boolean
   hasSeasons: boolean
+  hasVideo: boolean
   imageUrl?: string | null
   isExplicit: boolean
   itunesFeedType: string
