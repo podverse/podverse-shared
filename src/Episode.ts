@@ -4,6 +4,7 @@ import { LiveItemStatus } from "./LiveItem";
 export type Episode = {
   id: string
   alternateEnclosures: EpisodeAlternateEnclosure[]
+  chaptersUrl?: string
   contentLinks: EpisodeContentLinks[]
   credentialsRequired: boolean
   description?: string | null
@@ -64,6 +65,7 @@ export type ParsedEpisode = {
   alternateEnclosures: any[]
   author: any[]
   chapters?: any
+  chaptersUrl?: string
   chat?: string
   contentLinks: any[]
   description?: string
