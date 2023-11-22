@@ -1,4 +1,4 @@
-import { Episode, MediaRef, User } from ".";
+import { Episode, MediaRef, PodcastMedium, User } from ".";
 
 export type Playlist = {
   id: string
@@ -7,6 +7,7 @@ export type Playlist = {
   isPublic: boolean
   itemCount: number
   itemsOrder: string[]
+  medium: PodcastMedium
   title?: string | null
   episodes: Episode[]
   mediaRefs: MediaRef[]
