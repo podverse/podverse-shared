@@ -25,7 +25,7 @@ export {
 } from './nowPlayingItem'
 export { parseOpmlFile } from './opml'
 export { Playlist, combineAndSortPlaylistItems } from './Playlist'
-export { Podcast, PodcastMedium } from './Podcast'
+export { Podcast, PodcastMedium, podcastItunesTypeDefaultValue } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
 export { getSeasonOrSerialEpisodesData } from './seasons'
 export { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './socialInteraction/ActivityPub'

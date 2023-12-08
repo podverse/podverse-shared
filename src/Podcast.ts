@@ -41,3 +41,5 @@ export type Podcast = {
 }
 
 export type PodcastMedium = 'podcast' | 'music' | 'video' | 'film' | 'audiobook' | 'newsletter' | 'blog' | 'music-video' | 'mixed'
+
+export const podcastItunesTypeDefaultValue = 'episodic'
