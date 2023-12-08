@@ -13,12 +13,20 @@ export type ValueTimeSplit = {
     itemGuid: string
     medium?: string
   }
-  valueTags: ValueTag[]
+  valueTags: ValueTagExtended[]
 }
 
-export type ValueTag = {
+export type ValueTagOriginal = {
   method: string
-  suggested: string
+  suggested?: string
+  type: string
+  recipients: ValueRecipient[]
+  valueTimeSplits?: Phase6ValueTimeSplit[]
+}
+
+export type ValueTagExtended = {
+  method: string
+  suggested?: string
   type: string
   recipients: ValueRecipient[]
   valueTimeSplits?: Phase6ValueTimeSplit[] | null
@@ -30,7 +38,7 @@ export type ValueTag = {
   remotePercentage?: number
   remoteFeedGuid?: string
   remoteItemGuid?: string
-  parentValueTag?: ValueTag
+  parentValueTag?: ValueTagExtended
 }
 
 export type ValueRecipient = {
@@ -64,7 +72,7 @@ export type ValueTransaction = {
   providerKey: string
 }
 
-export const getLightningKeysendValueItem = (valueTags?: ValueTag[]) => {
+export const getLightningKeysendValueItem = (valueTags?: ValueTagExtended[]) => {
   return valueTags?.find((valueTag) => checkIfIsLightningKeysendValueTag(valueTag))
 }
 
@@ -72,6 +80,6 @@ export const addLightningBoltToString = (str = '') => {
   return `${str} ⚡️`
 }
 
-export const checkIfIsLightningKeysendValueTag = (valueTag?: ValueTag) => {
+export const checkIfIsLightningKeysendValueTag = (valueTag?: ValueTagExtended) => {
   return valueTag && valueTag.method === 'keysend' && valueTag.type === 'lightning'
 }

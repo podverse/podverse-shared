@@ -1,4 +1,4 @@
-import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTag } from ".";
+import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTagExtended } from ".";
 import { LiveItemStatus } from "./LiveItem";
 
 export type Episode = {
@@ -34,7 +34,7 @@ export type Episode = {
   subtitle?: string | null
   title?: string | null
   transcript: Transcript[] | null
-  value: ValueTag[] | null
+  value: ValueTagExtended[] | null
   podcast?: Podcast
 }
 

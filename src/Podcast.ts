@@ -1,4 +1,4 @@
-import { Author, Category, FeedUrl, Funding, ValueTag } from ".";
+import { Author, Category, FeedUrl, Funding, ValueTagExtended } from ".";
 import { LiveItemStatus } from "./LiveItem";
 
 export type Podcast = {
@@ -7,6 +7,7 @@ export type Podcast = {
   credentialsRequired: boolean
   description?: string
   embedApprovedMediaUrlPaths?: string
+  excludeCacheBust?: boolean
   feedUrls?: FeedUrl[]
   funding: Funding[]
   guid?: string
@@ -34,7 +35,7 @@ export type Podcast = {
   subtitle?: string
   title?: string | null
   type?: string | null
-  value: ValueTag[] | null
+  value: ValueTagExtended[] | null
   authors?: Author[] | null
   categories?: Category[] | null
 }

@@ -38,7 +38,8 @@ export { parseTranslatorsSection, Translator, TranslatorsSection } from './Trans
 export { Transcript, TranscriptRow, TranscriptType, getTranscriptForLocale, parseTranscriptFile } from './transcript'
 export { addParameterToURL, convertUrlToSecureHTTPS, createEmailLinkUrl, generateQueryParams, getExtensionFromUrl, getLocationURL } from './urls'
 export { addLightningBoltToString, checkIfIsLightningKeysendValueTag, getLightningKeysendValueItem,
-  ValueRecipient, ValueRecipientNormalized, ValueTag, ValueTimeSplit, ValueTransaction } from './valueTag'
+  ValueRecipient, ValueRecipientNormalized, ValueTagExtended, ValueTagOriginal,
+  ValueTimeSplit, ValueTransaction } from './valueTag'
 export { User } from './User'
 export { UserHistoryItem } from './UserHistoryItem'
 export { UserNowPlayingItem } from './UserNowPlayingItem'
