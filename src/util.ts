@@ -81,3 +81,5 @@ export const capitalizeFirstLetter = (str: string) => {
   str = str || ''
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+export const convertToSlug = (str: string) => str.replace(/\s+/g, '-').toLowerCase().replace(/\W/g, '').trim()

@@ -1,4 +1,4 @@
-import { Playlist, UserHistoryItem, UserNowPlayingItem, UserQueueItem } from ".";
+import { Playlist, UserHistoryItem, UserNowPlayingItem, UserQueueItem } from "."
 
 export type User = {
   id: string

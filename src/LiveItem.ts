@@ -1,4 +1,4 @@
-import { Episode, ParsedEpisode } from ".";
+import { Episode, ParsedEpisode } from "."
 
 export type LiveItemStatus = 'pending' | 'live' | 'ended' | 'none'
 

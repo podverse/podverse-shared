@@ -1,5 +1,5 @@
-import { Author, Category, FeedUrl, Funding, ValueTagExtended } from ".";
-import { LiveItemStatus } from "./LiveItem";
+import { Author, Category, FeedUrl, Funding, ValueTagExtended } from "."
+import { LiveItemStatus } from "./LiveItem"
 
 export type Podcast = {
   id: string

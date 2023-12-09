@@ -1,5 +1,5 @@
-import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTagExtended } from ".";
-import { LiveItemStatus } from "./LiveItem";
+import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTagExtended } from "."
+import { LiveItemStatus } from "./LiveItem"
 
 export type Episode = {
   id: string

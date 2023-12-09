@@ -1,4 +1,4 @@
-import { Episode, MediaRef, PodcastMedium, User } from ".";
+import { Episode, MediaRef, PodcastMedium, User } from "."
 
 export type Playlist = {
   id: string

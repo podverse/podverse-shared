@@ -1,6 +1,6 @@
 import { Author, EpisodeAlternateEnclosure, PodcastMedium, SocialInteraction } from '.'
 import { LiveItem } from './LiveItem'
-import { Transcript, TranscriptRow } from './transcript'
+import { Transcript } from './transcript'
 
 export type NowPlayingItem = {
   addByRSSPodcastFeedUrl?: string

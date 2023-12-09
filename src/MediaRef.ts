@@ -1,4 +1,4 @@
-import { Episode } from ".";
+import { Episode } from "."
 
 type Owner = {
   id: string

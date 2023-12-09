@@ -39,7 +39,7 @@ export const getSeasonOrSerialEpisodesData = ({
   const ascSort = 'asc'
   const descSort = 'desc'
 
-  let newState: NewState = {
+  const newState: NewState = {
     hasSeasons: false,
     querySort,
     seasonSections: []

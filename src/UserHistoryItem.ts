@@ -1,4 +1,4 @@
-import { Episode, MediaRef, User } from ".";
+import { Episode, MediaRef, User } from "."
 
 export type UserHistoryItem = {
   id: string

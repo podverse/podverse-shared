@@ -5,8 +5,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "tsc"
+    "dev": "nodemon --watch ./src -x \"npm run build\"",
+    "build": "tsc",
+    "lint": "eslint ./src --ext .ts",
+    "lint-fix": "eslint --fix",
+    "prepare": "npm run build"
   },
   "files": [
     "dist"
@@ -15,23 +18,27 @@
     "type": "git",
     "url": "git+https://github.com/podverse/podverse-shared.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "AGPLv3",
   "bugs": {
     "url": "https://github.com/podverse/podverse-shared/issues"
   },
   "homepage": "https://github.com/podverse/podverse-shared#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@types/he": "^1.1.2",
     "@types/lodash": "4.14.172",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "esbuild": "^0.19.8",
+    "eslint": "^8.54.0",
+    "nodemon": "^3.0.2",
+    "podcast-partytime": "4.6.0-beta.3",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
     "he": "^1.2.0",
     "html-entities": "^2.3.2",
     "lodash": "4.17.21",
     "moment": "^2.29.4",
-    "striptags": "^3.2.0",
-    "typescript": "3.9.7"
-  },
-  "devDependencies": {
-    "@types/he": "^1.1.2",
-    "podcast-partytime": "4.6.0-beta.3"
+    "striptags": "^3.2.0"
   }
 }
