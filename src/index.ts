@@ -8,8 +8,9 @@ export { FeedUrl, getAuthorityFeedUrlFromArray } from './FeedUrl'
 export { Funding } from './funding'
 export { decodeHTMLString, filterHTMLElementsFromString, removeLinebreaks,
   replaceLinebreaksWithBrTags, removeExtraInfoFromEpisodeDescription, removeHTMLFromString } from './htmlHelpers'
-export { LiveItem, LiveItemStatus, parseLatestLiveItemStatus, parseLatestLiveItemInfo } from './LiveItem'
+export { LiveItem, LiveItemStatus, liveItemStatuses, parseLatestLiveItemStatus, parseLatestLiveItemInfo } from './LiveItem'
 export { MediaRef, getMediaRefStartPosition } from './MediaRef'
+export { PodcastMedium, podcastMediumAllowedValues } from './medium'
 export {
   NowPlayingItem,
   checkIfNowPlayingItem,
@@ -25,7 +26,7 @@ export {
 } from './nowPlayingItem'
 export { parseOpmlFile } from './opml'
 export { Playlist, combineAndSortPlaylistItems } from './Playlist'
-export { Podcast, PodcastMedium, podcastItunesTypeDefaultValue } from './Podcast'
+export { Podcast, podcastItunesTypeDefaultValue } from './Podcast'
 export { SatoshiStreamStats, SatoshiStreamStatsPodcast } from './satoshiStream'
 export { getSeasonOrSerialEpisodesData } from './seasons'
 export { checkIfAllowedImageOrigin, removeUsernamesFromBeginningOfString } from './socialInteraction/ActivityPub'

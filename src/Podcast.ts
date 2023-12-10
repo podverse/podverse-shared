@@ -1,4 +1,4 @@
-import { Author, Category, FeedUrl, Funding, ValueTagExtended } from "."
+import { Author, Category, FeedUrl, Funding, PodcastMedium, ValueTagExtended } from "."
 import { LiveItemStatus } from "./LiveItem"
 
 export type Podcast = {
@@ -39,7 +39,5 @@ export type Podcast = {
   authors?: Author[] | null
   categories?: Category[] | null
 }
-
-export type PodcastMedium = 'podcast' | 'music' | 'video' | 'film' | 'audiobook' | 'newsletter' | 'blog' | 'music-video' | 'mixed'
 
 export const podcastItunesTypeDefaultValue = 'episodic'

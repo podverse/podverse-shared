@@ -2,6 +2,8 @@ import { Episode, ParsedEpisode } from "."
 
 export type LiveItemStatus = 'pending' | 'live' | 'ended' | 'none'
 
+export const liveItemStatuses = ['live', 'pending', 'ended']
+
 export type LiveItem = {
   status: LiveItemStatus
   start: Date
