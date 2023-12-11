@@ -17,7 +17,5 @@
         "no-mixed-operators": 0,
         "no-restricted-globals": 0,
         "semi": [1, "never"]
-    },
-    "ignorePatterns": ["**/node_modules/**"]
-}
-  
+    }
+  }
