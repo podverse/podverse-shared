@@ -32,7 +32,6 @@
     "@typescript-eslint/parser": "^6.13.0",
     "eslint": "^8.54.0",
     "nodemon": "^3.0.2",
-    "podcast-partytime": "4.6.0-beta.3",
     "typescript": "^5.3.3"
   },
   "dependencies": {
@@ -42,6 +41,7 @@
     "html-entities": "^2.3.2",
     "lodash": "4.17.21",
     "moment": "^2.29.4",
+    "podcast-partytime": "4.6.0-beta.3",
     "striptags": "^3.2.0"
   }
 }
