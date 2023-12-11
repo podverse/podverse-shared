@@ -1,3 +1,5 @@
+import { addParameterToURL } from "./urls"
+
 export const checkIfIdMatchesClipIdOrEpisodeIdOrAddByUrl = (
   id?: string,
   clipId?: string,
@@ -83,3 +85,46 @@ export const capitalizeFirstLetter = (str: string) => {
 }
 
 export const convertToSlug = (str: string) => str.replace(/\s+/g, '-').toLowerCase().replace(/\W/g, '').trim()
+
+export const convertToSortableTitle = (title: string) => {
+  const sortableTitle = title
+    ? title
+        .toLowerCase()
+        .replace(/\b^the\b|\b^a\b|\b^an\b/i, '')
+        .trim()
+    : ''
+  return sortableTitle ? sortableTitle.replace(/#/g, '') : ''
+}
+
+export const checkIfVideoMediaType = (str: string) => {
+  return str && (
+    str.toLowerCase().indexOf('video') >= 0
+    || str.toLowerCase().indexOf('application/x-mpegurl') >= 0
+  ) 
+}
+
+export const removeAllSpaces = (str: string) => {
+  str = str.replace(/%20/g, ' ')
+  str = str.replace(/\s/g, '')
+  return str
+}
+
+export const addCacheBustUrlParameter = (url: string, excludeCacheBust?: boolean) => {
+  return !excludeCacheBust
+  ? addParameterToURL(url, `cacheBust=${Date.now()}`)
+  : url
+}
+
+export const createAbortController = () => {
+  const abortTimeLimit = 60000
+  const abortController = new AbortController()
+  const abortTimeout = setTimeout(() => {
+    abortController.abort()
+  }, abortTimeLimit)
+  return { abortController, abortTimeout }
+}
+
+export type AbortAPI = {
+  abortController: AbortController
+  abortTimeout: NodeJS.Timeout
+}
