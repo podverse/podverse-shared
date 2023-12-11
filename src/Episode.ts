@@ -1,5 +1,4 @@
 import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTagExtended } from "."
-import { LiveItemStatus } from "./LiveItem"
 
 export type Episode = {
   id: string
@@ -66,7 +65,6 @@ export type ParsedEpisode = {
   author: any[]
   chapters?: any
   chaptersUrl?: string
-  chat?: string
   contentLinks: any[]
   description?: string
   duration?: any
@@ -79,9 +77,6 @@ export type ParsedEpisode = {
   itunesEpisodeType?: string
   itunesSeason?: any
   link?: string
-  liveItemEnd?: Date | null
-  liveItemStart?: Date
-  liveItemStatus?: LiveItemStatus
   pubDate: any
   socialInteraction: any[]
   soundbite: any[]

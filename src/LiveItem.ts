@@ -2,6 +2,8 @@ import { Episode, ParsedEpisode } from "."
 
 export type LiveItemStatus = 'pending' | 'live' | 'ended' | 'none'
 
+export const liveItemStatuses = ['live', 'pending', 'ended']
+
 export type LiveItem = {
   status: LiveItemStatus
   start: Date
@@ -10,10 +12,18 @@ export type LiveItem = {
   chatIRCURL: string | null
 }
 
-export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
+export type ParsedLiveItem = {
+  chat?: string
+  episode: ParsedEpisode
+  end?: Date | null
+  start?: Date
+  status?: LiveItemStatus
+}
+
+export const parseLatestLiveItemStatus = (parsedLiveItems: ParsedLiveItem[]) => {
   let latestLiveItemStatus = 'none' as LiveItemStatus
-  for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
-    const liveItemStatus = parsedLiveItemEpisode.liveItemStatus?.toLowerCase()
+  for (const parsedLiveItem of parsedLiveItems) {
+    const liveItemStatus = parsedLiveItem.status?.toLowerCase()
     if (liveItemStatus === 'live') {
       latestLiveItemStatus = 'live'
       break
@@ -33,22 +43,22 @@ export const parseLatestLiveItemStatus = (parsedLiveItemEpisodes: ParsedEpisode[
   return latestLiveItemStatus
 }
 
-export const parseLatestLiveItemInfo = (parsedLiveItemEpisodes: ParsedEpisode[]) => {
+export const parseLatestLiveItemInfo = (parsedLiveItems: ParsedLiveItem[]) => {
   let liveItemLatestPubDate = null
   let liveItemLatestTitle = ''
   let liveItemLatestImageUrl = ''
-  for (const parsedLiveItemEpisode of parsedLiveItemEpisodes) {
-    const liveItemStatus = parsedLiveItemEpisode.liveItemStatus?.toLowerCase()
+  for (const parsedLiveItem of parsedLiveItems) {
+    const liveItemStatus = parsedLiveItem.status?.toLowerCase()
     if (
       liveItemStatus === 'live'
       && (
         !liveItemLatestPubDate
-        || new Date(parsedLiveItemEpisode.liveItemStart as any) > new Date(liveItemLatestPubDate)
+        || new Date(parsedLiveItem.start as any) > new Date(liveItemLatestPubDate)
       )
     ) {
-      liveItemLatestPubDate = parsedLiveItemEpisode.liveItemStart
-      liveItemLatestTitle = parsedLiveItemEpisode.title || 'Untitled Livestream'
-      liveItemLatestImageUrl = parsedLiveItemEpisode.imageURL || ''
+      liveItemLatestPubDate = parsedLiveItem.start
+      liveItemLatestTitle = parsedLiveItem.episode.title || 'Untitled Livestream'
+      liveItemLatestImageUrl = parsedLiveItem.episode.imageURL || ''
     }
   }
   return { liveItemLatestImageUrl, liveItemLatestPubDate, liveItemLatestTitle }
