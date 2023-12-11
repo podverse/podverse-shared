@@ -128,3 +128,14 @@ export type AbortAPI = {
   abortController: AbortController
   abortTimeout: NodeJS.Timeout
 }
+
+export const chunkArray = (arr: any[], chunkSize = 10) => {
+  let i
+  let j
+  const chunks: any[] = []
+  for (i = 0, j = arr.length; i < j; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize) as never // TODO: What does this mean?
+    chunks.push(chunk)
+  }
+  return chunks
+}
