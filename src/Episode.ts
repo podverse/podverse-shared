@@ -1,24 +1,30 @@
-import { Funding, LiveItem, Podcast, SocialInteraction, Transcript, ValueTagExtended } from "."
+import { Author, Category, Funding, LiveItem, MediaRef, Podcast, SocialInteraction, Transcript, UserHistoryItem, UserNowPlayingItem, UserQueueItem, ValueTagExtended, ValueTagOriginal } from "."
 
+// Keep this in sync with the Episode declared in podverse-orm entities/episode
 export type Episode = {
+  // ids
   id: string
-  alternateEnclosures: EpisodeAlternateEnclosure[]
-  chaptersUrl?: string
-  contentLinks: EpisodeContentLinks[]
+  podcastId: string
+  guid?: string | null
+
+  // other props
+  alternateEnclosures: EpisodeAlternateEnclosure[] | null
+  chaptersType?: string | null
+  chaptersUrl?: string | null
+  chaptersUrlLastParsed: Date | null
+  contentLinks: EpisodeContentLinks[] | null
   credentialsRequired: boolean
   description?: string | null
   duration?: number
   episodeType?: string | null
   funding: Funding[] | null
-  guid?: string | null
   imageUrl?: string | null
   isExplicit: boolean
   isPublic: boolean
-  itunesEpisode?: any
+  itunesEpisode?: number | null
   itunesEpisodeType?: string | null
-  itunesSeason?: any
+  itunesSeason?: number | null
   linkUrl?: string | null
-  liveItem: LiveItem
   mediaFilesize: number
   mediaType?: string | null
   mediaUrl: string
@@ -33,8 +39,21 @@ export type Episode = {
   subtitle?: string | null
   title?: string | null
   transcript: Transcript[] | null
-  value: ValueTagExtended[] | null
+  value: ValueTagOriginal[] | null
+
+  // relationships
+  authors?: Author[]
+  categories?: Category[]
+  liveItem?: LiveItem | null
+  mediaRefs?: MediaRef[]
   podcast?: Podcast
+  userHistoryItems?: UserHistoryItem[]
+  userNowPlayingItems?: UserNowPlayingItem[]
+  userQueueItems?: UserQueueItem[]
+
+  // column dates
+  createdAt: Date
+  updatedAt: Date
 }
 
 export type EpisodeAlternateEnclosure = {
@@ -58,31 +77,4 @@ export type EpisodeAlternateEnclosureSource = {
 export type EpisodeContentLinks = {
   href: string
   title?: string
-}
-
-export type ParsedEpisode = {
-  alternateEnclosures: any[]
-  author: any[]
-  chapters?: any
-  chaptersUrl?: string
-  contentLinks: any[]
-  description?: string
-  duration?: any
-  enclosure: any
-  explicit: boolean
-  // funding: any[]
-  guid?: string
-  imageURL?: string
-  itunesEpisode?: any
-  itunesEpisodeType?: string
-  itunesSeason?: any
-  link?: string
-  pubDate: any
-  socialInteraction: any[]
-  soundbite: any[]
-  subtitle?: string
-  summary?: string
-  title?: string
-  transcript: any[]
-  value: any[]
 }
