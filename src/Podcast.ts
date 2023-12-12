@@ -2,8 +2,11 @@ import { Author, Category, FeedUrl, Funding, PodcastMedium, ValueTagExtended } f
 import { LiveItemStatus } from "./LiveItem"
 
 export type Podcast = {
+  // ids
   id: string
   podcastIndexId: string
+
+  // other props
   credentialsRequired: boolean
   description?: string
   embedApprovedMediaUrlPaths?: string
@@ -36,8 +39,14 @@ export type Podcast = {
   title?: string | null
   type?: string | null
   value: ValueTagExtended[] | null
+
+  // relationships
   authors?: Author[] | null
   categories?: Category[] | null
+
+  // column dates
+  createdAt: Date
+  updatedAt: Date
 }
 
 export const podcastItunesTypeDefaultValue = 'episodic'
