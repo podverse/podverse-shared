@@ -1,6 +1,6 @@
 export type Author = {
   id: string
-  int_id: string
+  int_id: number
   name: string
   slug: string
 }

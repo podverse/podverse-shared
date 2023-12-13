@@ -1,6 +1,6 @@
 export type Category = {
   id: string
-  int_id: string
+  int_id: number
   fullPath: string
   slug: string
   title: string
