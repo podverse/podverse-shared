@@ -139,3 +139,31 @@ export const chunkArray = (arr: any[], chunkSize = 10) => {
   }
   return chunks
 }
+
+export const parseIntOrDefault = (str?: string, def?: number): number | null => {
+  let val = typeof def === 'number' ? def : null
+  if (str) {
+    const parsedInt = parseInt(str, 10)
+    if (!Number.isNaN(parsedInt)) {
+      val = parsedInt
+    }
+  }
+  return val
+}
+
+export const offsetDate = (minutesOffset = 0) => {
+  const todayDate = new Date()
+  todayDate.setMinutes(todayDate.getMinutes() - todayDate.getTimezoneOffset() + minutesOffset)
+  return todayDate.toISOString().slice(0, 10)
+}
+
+export const splitDateIntoEqualIntervals = (startDate: Date, endDate: Date, numberOfIntervals: number) => {
+  const intervalLength = (endDate.getTime() - startDate.getTime()) / numberOfIntervals
+  return [...new Array(numberOfIntervals)].map((e, i) => {
+    return {
+      start: new Date(startDate.getTime() + i * intervalLength),
+      avg: new Date(startDate.getTime() + (i + 0.5) * intervalLength),
+      end: new Date(startDate.getTime() + (i + 1) * intervalLength)
+    }
+  })
+}
