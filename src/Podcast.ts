@@ -1,4 +1,4 @@
-import { Author, Category, FeedUrl, Funding, PodcastMedium, ValueTagExtended, ValueTagOriginal } from "."
+import { Author, Category, FeedUrl, Funding, PodcastMedium, ValueTagOriginal } from "."
 import { LiveItemStatus } from "./LiveItem"
 
 export type Podcast = {
