@@ -167,3 +167,19 @@ export const splitDateIntoEqualIntervals = (startDate: Date, endDate: Date, numb
     }
   })
 }
+
+// TODO: how do we get rid of addDays from the prototype?
+// eslint-disable-next-line
+// @ts-ignore
+Date.prototype.addDays = function (days) {
+  const date = new Date(this.valueOf())
+  date.setDate(date.getDate() + days)
+  return date
+}
+
+export const isBeforeDate = (expirationDate: Date, dayOffset = 0) => {
+  const currentDate = new Date() as any
+
+  const offsetDate = currentDate.addDays(dayOffset)
+  return new Date(expirationDate) > offsetDate
+}
