@@ -1,4 +1,4 @@
-import { Author, Category, Funding, LiveItem, MediaRef, Podcast, SocialInteraction, Transcript, UserHistoryItem, UserNowPlayingItem, UserQueueItem, ValueTagExtended, ValueTagOriginal } from "."
+import { Author, Category, Funding, LiveItem, MediaRef, Podcast, SocialInteraction, Transcript, UserHistoryItem, UserNowPlayingItem, UserQueueItem, ValueTagOriginal } from "."
 
 // Keep this in sync with the Episode declared in podverse-orm entities/episode
 export type Episode = {
