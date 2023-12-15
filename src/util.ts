@@ -115,20 +115,6 @@ export const addCacheBustUrlParameter = (url: string, excludeCacheBust?: boolean
   : url
 }
 
-export const createAbortController = () => {
-  const abortTimeLimit = 60000
-  const abortController = new AbortController()
-  const abortTimeout = setTimeout(() => {
-    abortController.abort()
-  }, abortTimeLimit)
-  return { abortController, abortTimeout }
-}
-
-export type AbortAPI = {
-  abortController: AbortController
-  abortTimeout: NodeJS.Timeout
-}
-
 export const chunkArray = (arr: any[], chunkSize = 10) => {
   let i
   let j
