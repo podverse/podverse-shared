@@ -23,7 +23,7 @@ export const filterHTMLElementsFromString = (html: string) => {
   if (html) {
     // eslint-disable-next-line max-len
     const finalHtml = html.replace(
-      /<audio.*>.*?<\/audio>|<video.*>.*?<\/video>|<iframe.*>.*?<\/iframe>|<img.*>.*?<\/img>|<img.*>/gi,
+      /<audio.*>.*?<\/audio>|<video.*>.*?<\/video>|<iframe.*>.*?<\/iframe>|<img.*>.*?<\/img>|<img.*?\/>/gi,
       ''
     )
     return finalHtml
